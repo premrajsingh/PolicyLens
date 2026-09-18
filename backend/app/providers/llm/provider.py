@@ -228,7 +228,9 @@ class GeminiProvider:
                     },
                 },
             )
-            resp.raise_for_status()
+            if resp.status_code >= 400:
+                detail = (resp.text or "")[:160].replace("\n", " ")
+                raise RuntimeError(f"Gemini HTTP {resp.status_code}: {detail}")
             data = resp.json()
         text = data["candidates"][0]["content"]["parts"][0]["text"]
         return json.loads(text)
