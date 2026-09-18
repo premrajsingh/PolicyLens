@@ -181,11 +181,11 @@ class OpenAICompatibleProvider:
 
 class GeminiProvider:
     name = "gemini"
-    # Prefer currently available flash models; 2.0-flash is retired (404).
+    # Prefer models that return 200 today; 2.5-flash is often 404, flash-latest often 503.
     _MODEL_FALLBACKS = (
-        "gemini-2.5-flash",
+        "gemini-3.6-flash",
         "gemini-flash-latest",
-        "gemini-3.5-flash",
+        "gemini-2.5-flash",
         "gemini-2.5-flash-lite",
     )
 
@@ -193,7 +193,7 @@ class GeminiProvider:
         if not api_key:
             raise ValueError("GEMINI_API_KEY is required when LLM_PROVIDER=gemini")
         self.api_key = api_key
-        self.model = model or "gemini-2.5-flash"
+        self.model = model or "gemini-3.6-flash"
         self._base = "https://generativelanguage.googleapis.com/v1beta"
 
     async def extract_group(
@@ -254,6 +254,22 @@ class GeminiProvider:
                             model,
                             resp.status_code,
                         )
+                        # #region agent log
+                        try:
+                            import time as _time
+                            from pathlib import Path as _P
+                            _line = json.dumps({"sessionId":"35e57c","hypothesisId":"C","location":"provider.py:GeminiProvider","message":"gemini_model_retry","data":{"group":group,"model":model,"status":resp.status_code,"tried":models},"timestamp":int(_time.time()*1000),"runId":"pre-fix"})
+                            logger.info("debug35e57c %s", _line)
+                            for _p in (_P("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"), _P("/tmp/debug-35e57c.log")):
+                                try:
+                                    _p.parent.mkdir(parents=True, exist_ok=True)
+                                    _p.open("a").write(_line + "\n")
+                                    break
+                                except Exception:
+                                    continue
+                        except Exception:
+                            pass
+                        # #endregion
                         continue
                     if resp.status_code >= 400:
                         detail = (resp.text or "")[:160].replace("\n", " ")
@@ -261,6 +277,22 @@ class GeminiProvider:
                     data = resp.json()
                     text = data["candidates"][0]["content"]["parts"][0]["text"]
                     self.model = model
+                    # #region agent log
+                    try:
+                        import time as _time
+                        from pathlib import Path as _P
+                        _line = json.dumps({"sessionId":"35e57c","hypothesisId":"C","location":"provider.py:GeminiProvider","message":"gemini_model_ok","data":{"group":group,"model":model},"timestamp":int(_time.time()*1000),"runId":"pre-fix"})
+                        logger.info("debug35e57c %s", _line)
+                        for _p in (_P("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"), _P("/tmp/debug-35e57c.log")):
+                            try:
+                                _p.parent.mkdir(parents=True, exist_ok=True)
+                                _p.open("a").write(_line + "\n")
+                                break
+                            except Exception:
+                                continue
+                    except Exception:
+                        pass
+                    # #endregion
                     return json.loads(text)
                 except RuntimeError:
                     raise

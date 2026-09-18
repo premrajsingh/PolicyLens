@@ -18,18 +18,26 @@ logger = logging.getLogger(__name__)
 
 
 def demo_seed_dirs() -> list[Path]:
-    repo_root = Path(__file__).resolve().parents[3]
+    here = Path(__file__).resolve()
+    # Docker image: /app/app/core/seed.py → /app/demo_seed
+    # Local monorepo: backend/app/core/seed.py → data/demo_seed
     return [
         Path("/app/demo_seed"),
-        repo_root / "data" / "demo_seed",
+        here.parents[2] / "demo_seed",
+        here.parents[2].parent / "data" / "demo_seed",
+        here.parents[3] / "data" / "demo_seed",
     ]
 
 
 def sample_output_dirs() -> list[Path]:
-    repo_root = Path(__file__).resolve().parents[3]
+    here = Path(__file__).resolve()
+    # Docker: COPY outputs/sample → /app/sample_outputs
+    # Local: <repo>/outputs/sample
     return [
         Path("/app/sample_outputs"),
-        repo_root / "outputs" / "sample",
+        here.parents[2] / "sample_outputs",
+        here.parents[2].parent / "outputs" / "sample",
+        here.parents[3] / "outputs" / "sample",
     ]
 
 
@@ -40,6 +48,38 @@ def _safe_stem(name: str) -> str:
 def _find_sample_json(filename: str, output_dirs: list[Path] | None = None) -> Path | None:
     stem = Path(filename).stem
     dirs = output_dirs or sample_output_dirs()
+    # #region agent log
+    try:
+        import time as _time
+        _payload = {
+            "sessionId": "35e57c",
+            "hypothesisId": "B",
+            "location": "seed.py:_find_sample_json",
+            "message": "sample lookup",
+            "data": {
+                "filename": filename,
+                "stem": stem,
+                "dirs": [str(d) for d in dirs],
+                "exists": [str(d) for d in dirs if d.is_dir()],
+                "json_counts": [len(list(d.glob("*.json"))) if d.is_dir() else 0 for d in dirs],
+            },
+            "timestamp": int(_time.time() * 1000),
+            "runId": "pre-fix",
+        }
+        logger.info("debug35e57c %s", json.dumps(_payload))
+        for _p in (
+            Path("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"),
+            Path("/tmp/debug-35e57c.log"),
+        ):
+            try:
+                _p.parent.mkdir(parents=True, exist_ok=True)
+                _p.open("a").write(json.dumps(_payload) + "\n")
+                break
+            except Exception:
+                continue
+    except Exception:
+        pass
+    # #endregion
     candidates = [f"{stem}.json", f"{_safe_stem(stem)}.json"]
     for out_dir in dirs:
         if not out_dir.is_dir():
@@ -47,15 +87,66 @@ def _find_sample_json(filename: str, output_dirs: list[Path] | None = None) -> P
         for name in candidates:
             path = out_dir / name
             if path.is_file():
+                # #region agent log
+                try:
+                    import time as _time
+                    _payload = {
+                        "sessionId": "35e57c",
+                        "hypothesisId": "B",
+                        "location": "seed.py:_find_sample_json",
+                        "message": "sample found",
+                        "data": {"path": str(path)},
+                        "timestamp": int(_time.time() * 1000),
+                        "runId": "pre-fix",
+                    }
+                    logger.info("debug35e57c %s", json.dumps(_payload))
+                    for _p in (
+                        Path("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"),
+                        Path("/tmp/debug-35e57c.log"),
+                    ):
+                        try:
+                            _p.parent.mkdir(parents=True, exist_ok=True)
+                            _p.open("a").write(json.dumps(_payload) + "\n")
+                            break
+                        except Exception:
+                            continue
+                except Exception:
+                    pass
+                # #endregion
                 return path
         target = _safe_stem(stem).lower()
         for path in sorted(out_dir.glob("*.json")):
             if _safe_stem(path.stem).lower() == target:
                 return path
-            # Match when live filename is a long OCR export prefix of the sample stem.
             sample = _safe_stem(path.stem).lower()
             if target.startswith(sample[:40]) or sample.startswith(target[:40]):
                 return path
+    # #region agent log
+    try:
+        import time as _time
+        _payload = {
+            "sessionId": "35e57c",
+            "hypothesisId": "B",
+            "location": "seed.py:_find_sample_json",
+            "message": "sample NOT found",
+            "data": {"filename": filename},
+            "timestamp": int(_time.time() * 1000),
+            "runId": "pre-fix",
+        }
+        logger.info("debug35e57c %s", json.dumps(_payload))
+        for _p in (
+            Path("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"),
+            Path("/tmp/debug-35e57c.log"),
+        ):
+            try:
+                _p.parent.mkdir(parents=True, exist_ok=True)
+                _p.open("a").write(json.dumps(_payload) + "\n")
+                break
+            except Exception:
+                continue
+    except Exception:
+        pass
+    # #endregion
     return None
 
 

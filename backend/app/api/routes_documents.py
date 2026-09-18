@@ -82,9 +82,42 @@ async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
                 return
 
             # Demo-fast path: published sample outputs ship in the image — no LLM wait.
-            from app.core.seed import _find_sample_json, _persist_payload
+            from app.core.seed import _find_sample_json, _persist_payload, sample_output_dirs
 
-            sample = _find_sample_json(doc.original_filename or doc.filename)
+            fname = doc.original_filename or doc.filename
+            sample = _find_sample_json(fname)
+            # #region agent log
+            try:
+                import time as _time
+                from pathlib import Path as _P
+                _dirs = sample_output_dirs()
+                _line = json.dumps({
+                    "sessionId": "35e57c",
+                    "hypothesisId": "A",
+                    "location": "routes_documents.py:_auto_pipeline_async",
+                    "message": "sample_lookup",
+                    "data": {
+                        "document_id": document_id,
+                        "filename": fname,
+                        "sample": sample.name if sample else None,
+                        "dirs": [str(d) for d in _dirs],
+                        "dir_exists": [d.is_dir() for d in _dirs],
+                        "dir_json_count": [len(list(d.glob('*.json'))) if d.is_dir() else 0 for d in _dirs],
+                    },
+                    "timestamp": int(_time.time() * 1000),
+                    "runId": "pre-fix",
+                })
+                logger.info("debug35e57c %s", _line)
+                for _p in (_P("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"), _P("/tmp/debug-35e57c.log")):
+                    try:
+                        _p.parent.mkdir(parents=True, exist_ok=True)
+                        _p.open("a").write(_line + "\n")
+                        break
+                    except Exception:
+                        continue
+            except Exception:
+                pass
+            # #endregion
             if sample is not None:
                 payload = json.loads(sample.read_text(encoding="utf-8"))
                 _persist_payload(session, doc, payload)
