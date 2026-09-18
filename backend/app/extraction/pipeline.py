@@ -512,13 +512,15 @@ class PipelineService:
                         evidence_chunks=evidence_chunks,
                         source_file=document.filename,
                     ),
-                    timeout=45,
+                    timeout=90,
                 )
             except Exception as exc:
                 self._log(job, f"llm_error group={group} type={type(exc).__name__}")
                 policy.extraction_metadata.extraction_errors.append(
                     f"{group}: provider request failed ({type(exc).__name__}: {str(exc)[:160]})"
                 )
+            # Pace Groq free-tier RPM so one policy doesn't burn the whole minute budget.
+            await asyncio.sleep(4)
 
             for field_name in fields:
                 raw = llm_payload.get(field_name) if isinstance(llm_payload, dict) else None
