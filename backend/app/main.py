@@ -22,7 +22,7 @@ from app.api import (
 from app.config import get_settings
 from app.core.errors import AppError, app_error_handler, http_error_handler, unhandled_error_handler
 from app.core.logging import new_request_id, request_id_ctx, setup_logging
-from app.core.seed import restore_demo_seed_if_needed
+from app.core.seed import hydrate_partial_from_samples, restore_demo_seed_if_needed
 from app.db.models import Document, ProcessingJob, utcnow
 from app.db.session import get_engine, init_db
 
@@ -42,6 +42,13 @@ async def lifespan(_: FastAPI):
     # Restore bundled demo before opening SQLite (survives Render free-tier wipes).
     restore_demo_seed_if_needed(settings)
     init_db(settings)
+    # Fill Partial/empty extracts from bundled sample QMS JSON when Groq quota is exhausted.
+    try:
+        n = hydrate_partial_from_samples(settings)
+        if n:
+            logger.info("startup hydrated %s policies from sample outputs", n)
+    except Exception:
+        logger.exception("startup hydrate_partial_from_samples failed")
     # Background tasks do not survive a restart. Surface interrupted work honestly.
     with Session(get_engine(settings)) as session:
         for job in session.exec(

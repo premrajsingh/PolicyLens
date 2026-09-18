@@ -100,11 +100,16 @@ class OpenAICompatibleProvider:
         from openai import APIStatusError, RateLimitError
 
         system = SYSTEM_PROMPT + "\n" + GROUP_INSTRUCTIONS.get(group, "")
+        # Cap evidence size so free-tier Groq TPD lasts through a full policy extract.
+        slim_chunks: list[dict[str, Any]] = []
+        for chunk in evidence_chunks[:12]:
+            text = str(chunk.get("text") or "")[:900]
+            slim_chunks.append({**chunk, "text": text})
         user = {
             "group": group,
             "fields": fields,
             "source_file": source_file,
-            "evidence_chunks": evidence_chunks,
+            "evidence_chunks": slim_chunks,
             "field_schema": FieldValue.model_json_schema(),
         }
         last_error: Exception | None = None
@@ -113,7 +118,7 @@ class OpenAICompatibleProvider:
                 response = await self._client.chat.completions.create(
                     model=self.model,
                     temperature=0,
-                    max_completion_tokens=7000,
+                    max_completion_tokens=2500,
                     **({"reasoning_effort": "low"} if "gpt-oss" in self.model else {}),
                     response_format={"type": "json_object"},
                     messages=[
