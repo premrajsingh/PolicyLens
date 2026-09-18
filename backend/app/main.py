@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import asyncio
 import base64
+import logging
 import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -21,11 +23,14 @@ from app.api import (
 from app.config import get_settings
 from app.core.errors import AppError, app_error_handler, http_error_handler, unhandled_error_handler
 from app.core.logging import new_request_id, request_id_ctx, setup_logging
+from app.core.seed import seed_sample_policies_if_empty
 from app.db.models import Document, ProcessingJob, utcnow
 from app.db.session import get_engine, init_db
 
 
 from app.providers.graph_store.factory import close_graph_store
+
+logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
@@ -52,9 +57,15 @@ async def lifespan(_: FastAPI):
             doc.error_message = "Interrupted by server restart. Retry extraction."
             session.add(doc)
         session.commit()
+    # Fill empty demos after sleep/redeploy without blocking health checks.
+    seed_task = asyncio.create_task(seed_sample_policies_if_empty(settings))
     yield
+    seed_task.cancel()
+    try:
+        await seed_task
+    except asyncio.CancelledError:
+        pass
     await close_graph_store()
-
 
 def create_app() -> FastAPI:
     settings = get_settings()

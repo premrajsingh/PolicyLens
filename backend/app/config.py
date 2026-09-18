@@ -69,6 +69,7 @@ class Settings(BaseSettings):
     demo_password: SecretStr | None = None
     require_basic_auth: bool = False
     serve_frontend: bool = False
+    auto_seed_samples: bool = True
 
     @field_validator("data_dir", "output_dir", mode="before")
     @classmethod

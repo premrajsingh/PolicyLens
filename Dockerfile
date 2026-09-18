@@ -16,8 +16,10 @@ COPY backend/pyproject.toml backend/README.md backend/requirements.lock ./
 COPY backend/app ./app
 RUN pip install --no-cache-dir -r requirements.lock && pip install --no-deps .
 COPY --from=frontend /web/dist ./static
+COPY data/sample_policies ./sample_policies
 RUN mkdir -p /data && chown -R policylens:policylens /data /app
-ENV DATA_DIR=/data OUTPUT_DIR=/data/outputs DATABASE_URL=sqlite:////data/policylens.db
+ENV DATA_DIR=/data OUTPUT_DIR=/data/outputs DATABASE_URL=sqlite:////data/policylens.db \
+    AUTO_SEED_SAMPLES=true
 USER policylens
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4)" || exit 1

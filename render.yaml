@@ -29,6 +29,8 @@ services:
         value: local
       - key: OCR_ENABLED
         value: "false"
+      - key: AUTO_SEED_SAMPLES
+        value: "true"
       - key: DATA_DIR
         value: /data
       - key: OUTPUT_DIR
