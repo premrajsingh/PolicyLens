@@ -42,6 +42,25 @@ def extract_policy(
     return policy.model_dump(mode="json")
 
 
+@router.put("/api/policies/{document_id}/json")
+def import_policy_json(
+    document_id: str,
+    payload: dict,
+    session: Session = Depends(get_session),
+) -> dict:
+    """Load published sample / precomputed QMS JSON onto an existing document (demo refill)."""
+    from app.core.seed import _persist_payload
+
+    doc = session.get(Document, document_id)
+    if not doc:
+        raise AppError("Document not found", status_code=404, code="not_found")
+    try:
+        _persist_payload(session, doc, payload)
+    except Exception as exc:  # noqa: BLE001
+        raise AppError(f"Invalid policy JSON: {exc}", status_code=400, code="invalid_json") from exc
+    return {"document_id": document_id, "status": "extracted"}
+
+
 @router.get("/api/policies/{document_id}/extraction")
 def get_extraction(document_id: str, session: Session = Depends(get_session)) -> dict:
     return _get_payload(session, document_id)
