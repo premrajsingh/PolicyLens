@@ -26,7 +26,7 @@ def health() -> dict:
         "subtitle": APP_SUBTITLE,
         "schema_version": SCHEMA_VERSION,
         "pipeline_version": PIPELINE_VERSION,
-        "deploy_marker": "hydrate-first-v2",
+        "deploy_marker": "hydrate-first-v3",
         "bundled_sample_count": bundled_sample_count(),
         "sample_dirs_present": [str(d) for d in dirs if d.is_dir()],
     }

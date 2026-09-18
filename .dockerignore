@@ -13,5 +13,4 @@ data/pages
 data/vector_store
 data/graph_store
 data/*.db
-outputs/sample/*.json
 .DS_Store
