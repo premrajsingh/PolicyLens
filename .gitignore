@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/playwright-report/
+frontend/test-results/
+
+# Env & secrets
+.env
+.env.local
+*.pem
+
+# Data runtime
+data/policylens.db
+data/documents/*
+!data/documents/.gitkeep
+data/pages/*
+!data/pages/.gitkeep
+data/vector_store/*
+!data/vector_store/.gitkeep
+data/graph_store/*
+!data/graph_store/.gitkeep
+!data/sample_policies/
+
+# OS
+.DS_Store
+__MACOSX/
+._*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Outputs (keep directory, generated JSON may be committed for demo)
+outputs/sample/.gitkeep
+
+# Every local secret variant and SQLite journal
+.env.*
+!.env.example
+!.env.deployment.example
+**/*.db
+**/*.db-wal
+**/*.db-shm
+**/*.sqlite*
+outputs/e2e/
+outputs/ui_audit/
+
+# Editor / agent local config
+.cursor/

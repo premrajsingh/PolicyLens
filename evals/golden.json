@@ -1,0 +1,873 @@
+{
+  "scope": "Manually annotated acceptance checks from the supplied development PDFs, not a held-out accuracy benchmark. Runtime extraction never reads this file.",
+  "cases": [
+    {
+      "source_file": "1.Policy Copy.pdf",
+      "sha256": "b25b9244855d842f5ac4c7a1379af9adeda9fc248b5b853ee86ccb7f1270bedf",
+      "checks": [
+        {
+          "path": "policy_type",
+          "property": "normalized_value",
+          "expected": "gmc"
+        },
+        {
+          "path": "current_policy.policy_period_start",
+          "property": "normalized_value",
+          "expected": "2022-04-02"
+        },
+        {
+          "path": "current_policy.policy_period_end",
+          "property": "normalized_value",
+          "expected": "2023-04-01"
+        },
+        {
+          "path": "tpa",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.inception_renewal_date",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_start",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_end",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.tenure",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.previous_inception_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.renewal_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.raw_policy_period_text",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.normal_delivery_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.normal_delivery_non_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.csection_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.csection_non_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.vaccination_coverage",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "current_policy.net_premium",
+          "property": "normalized_value",
+          "expected": 349469,
+          "source_page": 1
+        },
+        {
+          "path": "current_policy.gross_premium",
+          "property": "normalized_value",
+          "expected": 412373,
+          "source_page": 1
+        },
+        {
+          "path": "demographics.employees",
+          "property": "normalized_value",
+          "expected": 115,
+          "source_page": 1
+        },
+        {
+          "path": "demographics.other_dependents",
+          "property": "normalized_value",
+          "expected": 32,
+          "source_page": 1
+        },
+        {
+          "path": "demographics.total_lives_covered",
+          "property": "normalized_value",
+          "expected": 147,
+          "source_page": 1
+        },
+        {
+          "path": "hospitalization.pre_hospitalization_days",
+          "property": "normalized_value",
+          "expected": 30,
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.post_hospitalization_days",
+          "property": "normalized_value",
+          "expected": 60,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.normal_delivery_limit",
+          "property": "normalized_value",
+          "expected": 50000,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.csection_limit",
+          "property": "normalized_value",
+          "expected": 50000,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.nine_month_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "maternity.baby_day_one_cover",
+          "property": "status",
+          "expected": "covered",
+          "source_page": 2
+        },
+        {
+          "path": "infertility_and_ambulance.ambulance_limits",
+          "property": "normalized_value",
+          "expected": 2000,
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.domiciliary_hospitalization",
+          "property": "status",
+          "expected": "not_covered",
+          "source_page": 3
+        },
+        {
+          "path": "infertility_and_ambulance.infertility_treatment",
+          "property": "status",
+          "expected": "not_covered",
+          "source_page": 3
+        },
+        {
+          "path": "waiting_periods.initial_30_day_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "waiting_periods.first_year_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "waiting_periods.second_year_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "waiting_periods.ped_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.modern_treatment",
+          "property": "normalized_value",
+          "expected": 50,
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.bariatric_treatment",
+          "property": "normalized_value",
+          "expected": 50,
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.psychiatric_treatment",
+          "property": "normalized_value",
+          "expected": 50,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.maternity_conditions",
+          "property": "contains",
+          "expected": "first two",
+          "source_page": 2
+        },
+        {
+          "path": "maternity.baby_day_one_cover",
+          "property": "contains",
+          "expected": "family",
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.room_rent_percentage",
+          "property": "normalized_value",
+          "expected": 2,
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.icu_percentage",
+          "property": "normalized_value",
+          "expected": 4,
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.room_rent_monetary_maximum",
+          "property": "normalized_value",
+          "expected": null,
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.icu_monetary_maximum",
+          "property": "normalized_value",
+          "expected": null,
+          "source_page": 2
+        },
+        {
+          "path": "policy_structure.sum_insured_tiers",
+          "property": "normalized_value",
+          "expected": [
+            300000,
+            500000
+          ],
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.teleconsultation",
+          "property": "status",
+          "expected": "covered",
+          "source_page": 2
+        }
+      ]
+    },
+    {
+      "source_file": "GHI Policy.pdf",
+      "sha256": "15dae183b2ac6659e7220708ff1b836a863dd8ed3cd18a9b490053ddf8516cc5",
+      "checks": [
+        {
+          "path": "policy_type",
+          "property": "normalized_value",
+          "expected": "gmc"
+        },
+        {
+          "path": "current_policy.policy_period_start",
+          "property": "normalized_value",
+          "expected": "2022-03-17"
+        },
+        {
+          "path": "current_policy.policy_period_end",
+          "property": "normalized_value",
+          "expected": "2023-03-16"
+        },
+        {
+          "path": "tpa",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.inception_renewal_date",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_start",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_end",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.tenure",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.previous_inception_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.renewal_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.raw_policy_period_text",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.normal_delivery_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.normal_delivery_non_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.csection_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.csection_non_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.vaccination_coverage",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "current_policy.net_premium",
+          "property": "normalized_value",
+          "expected": 461699,
+          "source_page": 1
+        },
+        {
+          "path": "current_policy.gross_premium",
+          "property": "normalized_value",
+          "expected": 544804,
+          "source_page": 1
+        },
+        {
+          "path": "demographics.employees",
+          "property": "normalized_value",
+          "expected": 86,
+          "source_page": 1
+        },
+        {
+          "path": "demographics.other_dependents",
+          "property": "normalized_value",
+          "expected": 66,
+          "source_page": 1
+        },
+        {
+          "path": "demographics.total_lives_covered",
+          "property": "normalized_value",
+          "expected": 152,
+          "source_page": 1
+        },
+        {
+          "path": "hospitalization.pre_hospitalization_days",
+          "property": "normalized_value",
+          "expected": 30,
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.post_hospitalization_days",
+          "property": "normalized_value",
+          "expected": 60,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.normal_delivery_limit",
+          "property": "normalized_value",
+          "expected": 75000,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.csection_limit",
+          "property": "normalized_value",
+          "expected": 75000,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.nine_month_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "maternity.baby_day_one_cover",
+          "property": "status",
+          "expected": "covered",
+          "source_page": 2
+        },
+        {
+          "path": "infertility_and_ambulance.ambulance_limits",
+          "property": "normalized_value",
+          "expected": 1000,
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.domiciliary_hospitalization",
+          "property": "status",
+          "expected": "not_covered",
+          "source_page": 3
+        },
+        {
+          "path": "infertility_and_ambulance.infertility_treatment",
+          "property": "status",
+          "expected": "not_covered",
+          "source_page": 4
+        },
+        {
+          "path": "waiting_periods.initial_30_day_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "waiting_periods.first_year_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "waiting_periods.second_year_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "waiting_periods.ped_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.modern_treatment",
+          "property": "normalized_value",
+          "expected": 50,
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.bariatric_treatment",
+          "property": "normalized_value",
+          "expected": 50,
+          "source_page": 2
+        },
+        {
+          "path": "other_benefits.psychiatric_treatment",
+          "property": "normalized_value",
+          "expected": 50,
+          "source_page": 2
+        },
+        {
+          "path": "maternity.maternity_conditions",
+          "property": "contains",
+          "expected": "first two",
+          "source_page": 2
+        },
+        {
+          "path": "maternity.baby_day_one_cover",
+          "property": "contains",
+          "expected": "family",
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.room_rent_monetary_maximum",
+          "property": "normalized_value",
+          "expected": "No Limit",
+          "source_page": 2
+        },
+        {
+          "path": "hospitalization.icu_monetary_maximum",
+          "property": "normalized_value",
+          "expected": "No Limit",
+          "source_page": 2
+        },
+        {
+          "path": "policy_structure.sum_insured_tiers",
+          "property": "normalized_value",
+          "expected": [
+            200000
+          ],
+          "source_page": 2
+        },
+        {
+          "path": "buffer_and_waivers.corporate_buffer_limit",
+          "property": "normalized_value",
+          "expected": 500000,
+          "source_page": 3
+        },
+        {
+          "path": "buffer_and_waivers.corporate_buffer_limit",
+          "property": "contains",
+          "expected": "24",
+          "source_page": 3
+        },
+        {
+          "path": "buffer_and_waivers.corporate_buffer_limit",
+          "property": "contains",
+          "expected": "exhaust",
+          "source_page": 3
+        }
+      ]
+    },
+    {
+      "source_file": "olj4KTUo9B1546-1692687606_925469 - 00 GMC Renewal Policy 00.pdf",
+      "sha256": "cbc624f1e385f73dc078cb7f52c462122982066cef77ef300b2426d06f0483f2",
+      "checks": [
+        {
+          "path": "policy_type",
+          "property": "normalized_value",
+          "expected": "gmc"
+        },
+        {
+          "path": "current_policy.policy_period_start",
+          "property": "normalized_value",
+          "expected": "2023-08-01"
+        },
+        {
+          "path": "current_policy.policy_period_end",
+          "property": "normalized_value",
+          "expected": "2024-07-31"
+        },
+        {
+          "path": "tpa",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.inception_renewal_date",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_start",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_end",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.tenure",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.previous_inception_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.renewal_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.raw_policy_period_text",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.normal_delivery_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.normal_delivery_non_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.csection_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.csection_non_metro_limit",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.vaccination_coverage",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "current_policy.net_premium",
+          "property": "normalized_value",
+          "expected": 83454,
+          "source_page": 4
+        },
+        {
+          "path": "current_policy.gross_premium",
+          "property": "status",
+          "expected": "conflict",
+          "source_page": 4
+        },
+        {
+          "path": "current_policy.gross_premium",
+          "property": "normalized_value",
+          "expected": null
+        },
+        {
+          "path": "current_policy.aggregate_sum_insured",
+          "property": "normalized_value",
+          "expected": 4500000,
+          "source_page": 3
+        },
+        {
+          "path": "demographics.employees",
+          "property": "normalized_value",
+          "expected": 9,
+          "source_page": 3
+        },
+        {
+          "path": "demographics.total_lives_covered",
+          "property": "normalized_value",
+          "expected": 20,
+          "source_page": 3
+        },
+        {
+          "path": "hospitalization.room_rent_percentage",
+          "property": "normalized_value",
+          "expected": 1,
+          "source_page": 3
+        },
+        {
+          "path": "hospitalization.icu_percentage",
+          "property": "normalized_value",
+          "expected": 2,
+          "source_page": 3
+        },
+        {
+          "path": "hospitalization.pre_hospitalization_days",
+          "property": "normalized_value",
+          "expected": 30,
+          "source_page": 3
+        },
+        {
+          "path": "hospitalization.post_hospitalization_days",
+          "property": "normalized_value",
+          "expected": 60,
+          "source_page": 3
+        },
+        {
+          "path": "maternity.normal_delivery_limit",
+          "property": "normalized_value",
+          "expected": 25000,
+          "source_page": 3
+        },
+        {
+          "path": "maternity.csection_limit",
+          "property": "normalized_value",
+          "expected": 35000,
+          "source_page": 3
+        },
+        {
+          "path": "maternity.nine_month_waiting_period_status",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "maternity.baby_day_one_cover",
+          "property": "contains",
+          "expected": "90",
+          "source_page": 3
+        },
+        {
+          "path": "maternity.maternity_conditions",
+          "property": "contains",
+          "expected": "IPD only",
+          "source_page": 3
+        },
+        {
+          "path": "waiting_periods.second_year_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 3
+        },
+        {
+          "path": "waiting_periods.initial_30_day_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 3
+        },
+        {
+          "path": "waiting_periods.ped_waiting_period_status",
+          "property": "status",
+          "expected": "waived_off",
+          "source_page": 3
+        },
+        {
+          "path": "other_benefits.opd",
+          "property": "status",
+          "expected": "not_covered",
+          "source_page": 3
+        },
+        {
+          "path": "other_benefits.psychiatric_treatment",
+          "property": "status",
+          "expected": "covered",
+          "source_page": 3
+        },
+        {
+          "path": "infertility_and_ambulance.ambulance_limits",
+          "property": "normalized_value",
+          "expected": 1000,
+          "source_page": 3
+        },
+        {
+          "path": "buffer_and_waivers.corporate_buffer_limit",
+          "property": "status",
+          "expected": "not_covered",
+          "source_page": 3
+        },
+        {
+          "path": "buffer_and_waivers.disease_wise_capping",
+          "property": "contains",
+          "expected": "Cataract",
+          "source_page": 3
+        },
+        {
+          "path": "buffer_and_waivers.disease_wise_capping",
+          "property": "contains",
+          "expected": "150000",
+          "source_page": 3
+        },
+        {
+          "path": "other_benefits.modern_treatment",
+          "property": "contains",
+          "expected": "50%",
+          "source_page": 3
+        }
+      ]
+    },
+    {
+      "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+      "sha256": "1cb6cb1abac746f16fe027dfcab26918dcb2a06ce094a8782df5244511e51918",
+      "checks": [
+        {
+          "path": "policy_type",
+          "property": "normalized_value",
+          "expected": "gpa"
+        },
+        {
+          "path": "current_policy.policy_period_start",
+          "property": "normalized_value",
+          "expected": "2022-06-02"
+        },
+        {
+          "path": "current_policy.policy_period_end",
+          "property": "normalized_value",
+          "expected": "2023-06-01"
+        },
+        {
+          "path": "tpa",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.inception_renewal_date",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_start",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.policy_period_end",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.tenure",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.previous_inception_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.renewal_premium",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "previous_policy.raw_policy_period_text",
+          "property": "status",
+          "expected": "unknown"
+        },
+        {
+          "path": "current_policy.net_premium",
+          "property": "normalized_value",
+          "expected": 9600,
+          "source_page": 1
+        },
+        {
+          "path": "current_policy.gross_premium",
+          "property": "normalized_value",
+          "expected": 11328,
+          "source_page": 1
+        },
+        {
+          "path": "current_policy.aggregate_sum_insured",
+          "property": "normalized_value",
+          "expected": 24000000,
+          "source_page": 1
+        },
+        {
+          "path": "hospitalization.room_rent_status",
+          "property": "status",
+          "expected": "not_applicable"
+        },
+        {
+          "path": "maternity.normal_delivery_limit",
+          "property": "status",
+          "expected": "not_applicable"
+        },
+        {
+          "path": "waiting_periods.initial_30_day_status",
+          "property": "status",
+          "expected": "not_applicable"
+        },
+        {
+          "path": "buffer_and_waivers.corporate_buffer_limit",
+          "property": "status",
+          "expected": "not_applicable"
+        },
+        {
+          "path": "other_benefits.opd",
+          "property": "status",
+          "expected": "not_applicable"
+        },
+        {
+          "path": "demographics.employees",
+          "property": "status",
+          "expected": "not_applicable"
+        }
+      ]
+    }
+  ]
+}

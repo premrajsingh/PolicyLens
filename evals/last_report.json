@@ -1,0 +1,48 @@
+{
+  "scope": "Manually annotated acceptance checks from the supplied development PDFs, not a held-out accuracy benchmark. Runtime extraction never reads this file.",
+  "unique_documents": 4,
+  "checks_passed": 151,
+  "checks_total": 151,
+  "evidence_claims": 211,
+  "unsupported_claims": 0,
+  "source_evidence_checked": true,
+  "failures": [],
+  "per_document": [
+    {
+      "source": "1.Policy Copy.pdf",
+      "checks_passed": 45,
+      "checks_total": 45,
+      "completion": "complete",
+      "fields_found": 43,
+      "review_flags": 4,
+      "conflicts": 0
+    },
+    {
+      "source": "GHI Policy.pdf",
+      "checks_passed": 45,
+      "checks_total": 45,
+      "completion": "complete",
+      "fields_found": 47,
+      "review_flags": 14,
+      "conflicts": 0
+    },
+    {
+      "source": "olj4KTUo9B1546-1692687606_925469 - 00 GMC Renewal Policy 00.pdf",
+      "checks_passed": 41,
+      "checks_total": 41,
+      "completion": "complete",
+      "fields_found": 40,
+      "review_flags": 8,
+      "conflicts": 1
+    },
+    {
+      "source": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+      "checks_passed": 20,
+      "checks_total": 20,
+      "completion": "complete",
+      "fields_found": 9,
+      "review_flags": 5,
+      "conflicts": 0
+    }
+  ]
+}

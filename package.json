@@ -1,0 +1,13 @@
+{
+  "name": "policylens",
+  "private": true,
+  "scripts": {
+    "e2e:smoke": "node scripts/e2e_smoke.mjs",
+    "verify:assignment": "python3 scripts/verify_assignment_fields.py",
+    "audit:assignment": "node scripts/assignment_page_audit.mjs",
+    "ui:assignment": "node scripts/assignment_ui_loop.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}

@@ -1,0 +1,19 @@
+services:
+  policylens:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file: .env
+    environment:
+      SERVE_FRONTEND: "true"
+      DATA_DIR: /data
+      OUTPUT_DIR: /data/outputs
+      DATABASE_URL: sqlite:////data/policylens.db
+      VECTOR_STORE: local
+      GRAPH_STORE: local
+      EMBEDDING_PROVIDER: hash
+    volumes:
+      - policy-data:/data
+    restart: unless-stopped
+volumes:
+  policy-data:

@@ -1,0 +1,706 @@
+{
+  "$defs": {
+    "BufferAndWaivers": {
+      "properties": {
+        "corporate_buffer_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "disease_wise_capping": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "waiver_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "additional_waivers": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "BufferAndWaivers",
+      "type": "object"
+    },
+    "CurrentPolicy": {
+      "properties": {
+        "policy_period_start": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "policy_period_end": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "inception_date": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "net_premium": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "gross_premium": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "aggregate_sum_insured": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "CurrentPolicy",
+      "type": "object"
+    },
+    "Demographics": {
+      "properties": {
+        "employees": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "spouses": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "children": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "parents": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "parents_in_law": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "other_dependents": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "total_lives_covered": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "Demographics",
+      "type": "object"
+    },
+    "DocumentInfo": {
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "filename": {
+          "title": "Filename",
+          "type": "string"
+        },
+        "content_hash": {
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "page_count": {
+          "default": 0,
+          "title": "Page Count",
+          "type": "integer"
+        },
+        "ocr_used": {
+          "default": false,
+          "title": "Ocr Used",
+          "type": "boolean"
+        },
+        "parsers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Parsers",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_id",
+        "filename",
+        "content_hash"
+      ],
+      "title": "DocumentInfo",
+      "type": "object"
+    },
+    "EvidenceItem": {
+      "properties": {
+        "source_file": {
+          "title": "Source File",
+          "type": "string"
+        },
+        "page_number": {
+          "title": "Page Number",
+          "type": "integer"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "section": {
+          "default": "general",
+          "title": "Section",
+          "type": "string"
+        },
+        "parser": {
+          "default": "text",
+          "enum": [
+            "text",
+            "table",
+            "ocr"
+          ],
+          "title": "Parser",
+          "type": "string"
+        },
+        "retrieval_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieval Score"
+        }
+      },
+      "required": [
+        "source_file",
+        "page_number",
+        "quote"
+      ],
+      "title": "EvidenceItem",
+      "type": "object"
+    },
+    "ExtractionMetadata": {
+      "properties": {
+        "provider": {
+          "title": "Provider",
+          "type": "string"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "generated_at": {
+          "title": "Generated At",
+          "type": "string"
+        },
+        "processing_duration_seconds": {
+          "default": 0.0,
+          "title": "Processing Duration Seconds",
+          "type": "number"
+        },
+        "pinecone_indexing_status": {
+          "default": "unknown",
+          "title": "Pinecone Indexing Status",
+          "type": "string"
+        },
+        "neo4j_sync_status": {
+          "default": "unknown",
+          "title": "Neo4J Sync Status",
+          "type": "string"
+        },
+        "retrieval_method": {
+          "default": "hybrid",
+          "title": "Retrieval Method",
+          "type": "string"
+        },
+        "ocr_used": {
+          "default": false,
+          "title": "Ocr Used",
+          "type": "boolean"
+        },
+        "parsers_used": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Parsers Used",
+          "type": "array"
+        },
+        "extraction_errors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Extraction Errors",
+          "type": "array"
+        },
+        "completion_status": {
+          "default": "complete",
+          "enum": [
+            "complete",
+            "partial",
+            "offline"
+          ],
+          "title": "Completion Status",
+          "type": "string"
+        },
+        "source_aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Aliases",
+          "type": "array"
+        }
+      },
+      "required": [
+        "provider",
+        "generated_at"
+      ],
+      "title": "ExtractionMetadata",
+      "type": "object"
+    },
+    "FieldValue": {
+      "properties": {
+        "value": {
+          "default": null,
+          "title": "Value"
+        },
+        "normalized_value": {
+          "default": null,
+          "title": "Normalized Value"
+        },
+        "status": {
+          "default": "unknown",
+          "enum": [
+            "covered",
+            "not_covered",
+            "waived_off",
+            "applied",
+            "not_applicable",
+            "unknown",
+            "conflict",
+            "partially_covered"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "raw_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Text"
+        },
+        "conditions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Conditions",
+          "type": "array"
+        },
+        "confidence": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceItem"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "conflicts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Conflicts",
+          "type": "array"
+        }
+      },
+      "title": "FieldValue",
+      "type": "object"
+    },
+    "Hospitalization": {
+      "properties": {
+        "room_rent_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "room_rent_percentage": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "room_rent_monetary_maximum": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "icu_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "icu_percentage": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "icu_monetary_maximum": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "pre_hospitalization_days": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "post_hospitalization_days": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "conditions": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "Hospitalization",
+      "type": "object"
+    },
+    "InfertilityAndAmbulance": {
+      "properties": {
+        "infertility_treatment": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "surrogacy": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "infertility_limits": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "surrogacy_limits": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "ambulance_charges": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "ambulance_limits": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "air_ambulance_charges": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "air_ambulance_limits": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "conditions": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "InfertilityAndAmbulance",
+      "type": "object"
+    },
+    "Maternity": {
+      "properties": {
+        "normal_delivery_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "csection_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "nine_month_waiting_period_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "nine_month_waiting_period_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "baby_day_one_cover": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "vaccination_coverage": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "vaccination_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "normal_delivery_metro_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "normal_delivery_non_metro_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "csection_metro_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "csection_non_metro_limit": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "maternity_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "maternity_exclusions": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "Maternity",
+      "type": "object"
+    },
+    "OtherBenefits": {
+      "properties": {
+        "day_care_expenses": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "opd": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "teleconsultation": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "pharmacy_discount": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "domiciliary_hospitalization": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "annual_health_check_up": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "modern_treatment": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "bariatric_treatment": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "psychiatric_treatment": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "ayush_treatment": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "lgbtq_coverage": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "live_in_partner_coverage": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "organ_donor_expenses": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "OtherBenefits",
+      "type": "object"
+    },
+    "PolicyStructure": {
+      "properties": {
+        "employee": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "spouse": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "children": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "parents": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "parents_in_law": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "other_family_members": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "family_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "sum_insured_tiers": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "PolicyStructure",
+      "type": "object"
+    },
+    "PreviousPolicy": {
+      "properties": {
+        "inception_renewal_date": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "policy_period_start": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "policy_period_end": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "tenure": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "previous_inception_premium": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "renewal_premium": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "raw_policy_period_text": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "PreviousPolicy",
+      "type": "object"
+    },
+    "ValidationSummary": {
+      "properties": {
+        "overall_confidence": {
+          "default": 0.0,
+          "title": "Overall Confidence",
+          "type": "number"
+        },
+        "evidence_coverage": {
+          "default": 0.0,
+          "title": "Evidence Coverage",
+          "type": "number"
+        },
+        "fields_found": {
+          "default": 0,
+          "title": "Fields Found",
+          "type": "integer"
+        },
+        "fields_missing": {
+          "default": 0,
+          "title": "Fields Missing",
+          "type": "integer"
+        },
+        "fields_requiring_review": {
+          "default": 0,
+          "title": "Fields Requiring Review",
+          "type": "integer"
+        },
+        "conflict_count": {
+          "default": 0,
+          "title": "Conflict Count",
+          "type": "integer"
+        },
+        "extraction_warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Extraction Warnings",
+          "type": "array"
+        },
+        "schema_valid": {
+          "default": true,
+          "title": "Schema Valid",
+          "type": "boolean"
+        },
+        "fields_not_applicable": {
+          "default": 0,
+          "title": "Fields Not Applicable",
+          "type": "integer"
+        },
+        "field_completeness": {
+          "default": 0.0,
+          "title": "Field Completeness",
+          "type": "number"
+        },
+        "confidence_note": {
+          "default": "Model confidence is not measured extraction accuracy.",
+          "title": "Confidence Note",
+          "type": "string"
+        }
+      },
+      "title": "ValidationSummary",
+      "type": "object"
+    },
+    "WaitingPeriods": {
+      "properties": {
+        "initial_30_day_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "initial_30_day_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "first_year_waiting_period_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "second_year_waiting_period_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "first_second_year_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "ped_waiting_period_status": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "ped_duration": {
+          "$ref": "#/$defs/FieldValue"
+        },
+        "ped_conditions": {
+          "$ref": "#/$defs/FieldValue"
+        }
+      },
+      "title": "WaitingPeriods",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "document": {
+      "$ref": "#/$defs/DocumentInfo"
+    },
+    "insurer": {
+      "$ref": "#/$defs/FieldValue"
+    },
+    "tpa": {
+      "$ref": "#/$defs/FieldValue"
+    },
+    "claims_administrator": {
+      "$ref": "#/$defs/FieldValue"
+    },
+    "policy_type": {
+      "$ref": "#/$defs/FieldValue"
+    },
+    "policy_number": {
+      "$ref": "#/$defs/FieldValue"
+    },
+    "group_company_name": {
+      "$ref": "#/$defs/FieldValue"
+    },
+    "previous_policy": {
+      "$ref": "#/$defs/PreviousPolicy"
+    },
+    "current_policy": {
+      "$ref": "#/$defs/CurrentPolicy"
+    },
+    "policy_structure": {
+      "$ref": "#/$defs/PolicyStructure"
+    },
+    "demographics": {
+      "$ref": "#/$defs/Demographics"
+    },
+    "hospitalization": {
+      "$ref": "#/$defs/Hospitalization"
+    },
+    "maternity": {
+      "$ref": "#/$defs/Maternity"
+    },
+    "waiting_periods": {
+      "$ref": "#/$defs/WaitingPeriods"
+    },
+    "other_benefits": {
+      "$ref": "#/$defs/OtherBenefits"
+    },
+    "infertility_and_ambulance": {
+      "$ref": "#/$defs/InfertilityAndAmbulance"
+    },
+    "buffer_and_waivers": {
+      "$ref": "#/$defs/BufferAndWaivers"
+    },
+    "extraction_metadata": {
+      "$ref": "#/$defs/ExtractionMetadata"
+    },
+    "validation": {
+      "$ref": "#/$defs/ValidationSummary"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pipeline_version",
+    "document",
+    "extraction_metadata"
+  ],
+  "title": "ExtractedPolicy",
+  "type": "object"
+}

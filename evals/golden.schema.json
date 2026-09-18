@@ -1,0 +1,23 @@
+{
+  "title": "PolicyLens QMS output shape",
+  "required_top_level": [
+    "schema_version",
+    "pipeline_version",
+    "document",
+    "insurer",
+    "tpa",
+    "policy_number",
+    "previous_policy",
+    "policy_structure",
+    "demographics",
+    "hospitalization",
+    "maternity",
+    "waiting_periods",
+    "other_benefits",
+    "infertility_and_ambulance",
+    "buffer_and_waivers",
+    "extraction_metadata",
+    "validation"
+  ],
+  "notes": "This schema validates structure only. It does not encode expected policy answers."
+}
