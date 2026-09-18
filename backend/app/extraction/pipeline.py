@@ -505,7 +505,7 @@ class PipelineService:
             except Exception as exc:
                 self._log(job, f"llm_error group={group} type={type(exc).__name__}")
                 policy.extraction_metadata.extraction_errors.append(
-                    f"{group}: provider request failed ({type(exc).__name__})"
+                    f"{group}: provider request failed ({type(exc).__name__}: {str(exc)[:160]})"
                 )
 
             for field_name in fields:
