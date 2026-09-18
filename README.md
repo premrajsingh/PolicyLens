@@ -4,7 +4,7 @@
 
 Turn messy Group Medical Cover PDFs into structured, citation-linked QMS JSON — without hardcoding insurer templates.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://substantial-targeted-plant-cardiac.trycloudflare.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://norm-developer-theft-rom.trycloudflare.com)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
@@ -12,7 +12,7 @@ Turn messy Group Medical Cover PDFs into structured, citation-linked QMS JSON �
 
 | | |
 |---|---|
-| **Live demo (working)** | [https://substantial-targeted-plant-cardiac.trycloudflare.com](https://substantial-targeted-plant-cardiac.trycloudflare.com) |
+| **Live demo (working)** | [https://norm-developer-theft-rom.trycloudflare.com](https://norm-developer-theft-rom.trycloudflare.com) |
 | **Render URL** | [https://policylens-cqm3.onrender.com](https://policylens-cqm3.onrender.com) — reconnect GitHub if deploy stays on old image |
 | **Repository** | [github.com/premrajsingh/PolicyLens](https://github.com/premrajsingh/PolicyLens) |
 | **Sample QMS JSON** | [`outputs/sample/`](outputs/sample/) |
