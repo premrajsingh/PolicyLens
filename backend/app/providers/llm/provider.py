@@ -143,11 +143,8 @@ class OpenAICompatibleProvider:
                     else ""
                 )
                 try:
-                    if float(retry_after) > 60:
-                        raise RuntimeError(
-                            "Provider quota exhausted; retry after the provider reset"
-                        ) from exc
-                    wait = min(max(float(retry_after), 1), 60)
+                    # Wait through short rate limits; cap long waits so demos can recover.
+                    wait = min(max(float(retry_after), 1), 90)
                 except ValueError:
                     wait = min(2**attempt * 10, 60)
                 logger.warning(
