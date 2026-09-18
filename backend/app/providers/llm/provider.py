@@ -199,22 +199,33 @@ class GeminiProvider:
     ) -> dict[str, Any]:
         import httpx
 
+        slim = [
+            {
+                "page_number": c.get("page_number"),
+                "section": c.get("section"),
+                "text": str(c.get("text") or "")[:450],
+            }
+            for c in evidence_chunks[:6]
+        ]
         prompt = {
             "group": group,
             "fields": fields,
             "source_file": source_file,
-            "evidence_chunks": evidence_chunks,
-            "field_schema": FieldValue.model_json_schema(),
+            "evidence_chunks": slim,
             "instructions": SYSTEM_PROMPT + "\n" + GROUP_INSTRUCTIONS.get(group, ""),
         }
         url = f"{self._base}/models/{self.model}:generateContent"
-        async with httpx.AsyncClient(timeout=90) as client:
+        async with httpx.AsyncClient(timeout=40) as client:
             resp = await client.post(
                 url,
                 headers={"x-goog-api-key": self.api_key},
                 json={
                     "contents": [{"parts": [{"text": json.dumps(prompt)}]}],
-                    "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
+                    "generationConfig": {
+                        "temperature": 0,
+                        "responseMimeType": "application/json",
+                        "maxOutputTokens": 2048,
+                    },
                 },
             )
             resp.raise_for_status()
@@ -231,6 +242,70 @@ class GeminiProvider:
         )
 
 
+class FailoverLLMProvider:
+    """Try Gemini first (fast), then Groq — used for live demos under quota pressure."""
+
+    name = "gemini+groq"
+
+    def __init__(self, primary: LLMProvider, secondary: LLMProvider) -> None:
+        self.primary = primary
+        self.secondary = secondary
+        self.model = f"{getattr(primary, 'model', primary.name)}|{getattr(secondary, 'model', secondary.name)}"
+
+    async def extract_group(
+        self,
+        *,
+        group: str,
+        fields: list[str],
+        evidence_chunks: list[dict[str, Any]],
+        source_file: str,
+    ) -> dict[str, Any]:
+        try:
+            return await self.primary.extract_group(
+                group=group,
+                fields=fields,
+                evidence_chunks=evidence_chunks,
+                source_file=source_file,
+            )
+        except Exception as primary_exc:  # noqa: BLE001
+            logger.warning(
+                "llm_failover primary=%s group=%s err=%s → secondary=%s",
+                self.primary.name,
+                group,
+                type(primary_exc).__name__,
+                self.secondary.name,
+            )
+            return await self.secondary.extract_group(
+                group=group,
+                fields=fields,
+                evidence_chunks=evidence_chunks,
+                source_file=source_file,
+            )
+
+    async def healthcheck(self) -> HealthStatus:
+        return HealthStatus(
+            name="llm_failover",
+            status="ok",
+            detail=f"primary={self.primary.name} secondary={self.secondary.name} model={self.model}",
+            configured=True,
+        )
+
+
+def _groq_provider(settings) -> OpenAICompatibleProvider:
+    key = settings.groq_api_key.get_secret_value() if settings.groq_api_key else ""
+    if not key:
+        raise ValueError("GROQ_API_KEY is required")
+    return OpenAICompatibleProvider(
+        api_key=key,
+        base_url=settings.groq_base_url,
+        model=settings.llm_model or settings.groq_model or "openai/gpt-oss-20b",
+        provider_name="groq",
+        timeout=min(float(settings.llm_timeout_seconds or 40), 40),
+        max_attempts=settings.llm_max_attempts,
+        missing_key_message="GROQ_API_KEY is required when LLM_PROVIDER=groq",
+    )
+
+
 def create_llm_provider(settings) -> LLMProvider:
     if settings.llm_provider == "mock":
         return MockLLMProvider()
@@ -244,22 +319,28 @@ def create_llm_provider(settings) -> LLMProvider:
             timeout=settings.llm_timeout_seconds,
             max_attempts=settings.llm_max_attempts,
         )
+
+    gemini_key = settings.gemini_api_key.get_secret_value() if settings.gemini_api_key else ""
+    groq_key = settings.groq_api_key.get_secret_value() if settings.groq_api_key else ""
+
+    # Fast demo mode: Gemini Flash primary, Groq backup (both keys → failover).
+    if settings.llm_provider in {"gemini", "auto"} or (
+        settings.llm_provider == "groq" and gemini_key and groq_key
+    ):
+        providers: list[LLMProvider] = []
+        if gemini_key:
+            providers.append(GeminiProvider(api_key=gemini_key, model=settings.gemini_model))
+        if groq_key:
+            providers.append(_groq_provider(settings))
+        if len(providers) >= 2:
+            return FailoverLLMProvider(providers[0], providers[1])
+        if len(providers) == 1:
+            return providers[0]
+        if settings.llm_provider == "gemini":
+            raise ValueError("GEMINI_API_KEY is required when LLM_PROVIDER=gemini")
+
     if settings.llm_provider == "groq":
-        key = settings.groq_api_key.get_secret_value() if settings.groq_api_key else ""
-        if not key:
-            raise ValueError(
-                "LLM_PROVIDER=groq requires GROQ_API_KEY; refusing silent fallback to mock"
-            )
-        return OpenAICompatibleProvider(
-            api_key=key,
-            base_url=settings.groq_base_url,
-            model=settings.llm_model or settings.groq_model or "openai/gpt-oss-20b",
-            provider_name="groq",
-            timeout=settings.llm_timeout_seconds,
-            max_attempts=settings.llm_max_attempts,
-            missing_key_message="GROQ_API_KEY is required when LLM_PROVIDER=groq",
-        )
+        return _groq_provider(settings)
     if settings.llm_provider == "gemini":
-        key = settings.gemini_api_key.get_secret_value() if settings.gemini_api_key else ""
-        return GeminiProvider(api_key=key, model=settings.gemini_model)
+        return GeminiProvider(api_key=gemini_key, model=settings.gemini_model)
     raise ValueError(f"Unknown LLM_PROVIDER={settings.llm_provider}")

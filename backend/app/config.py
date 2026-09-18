@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     output_dir: Path = Path("./outputs")
     database_url: str = "sqlite:///./data/policylens.db"
 
-    llm_provider: Literal["mock", "openai", "gemini", "groq"] = "mock"
+    llm_provider: Literal["mock", "openai", "gemini", "groq", "auto"] = "mock"
     llm_model: str = ""
     openai_api_key: SecretStr | None = None
     openai_base_url: str = "https://api.openai.com/v1"
