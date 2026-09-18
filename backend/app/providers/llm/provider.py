@@ -186,7 +186,7 @@ class GeminiProvider:
         if not api_key:
             raise ValueError("GEMINI_API_KEY is required when LLM_PROVIDER=gemini")
         self.api_key = api_key
-        self.model = model or "gemini-2.0-flash"
+        self.model = model or "gemini-flash-latest"
         self._base = "https://generativelanguage.googleapis.com/v1beta"
 
     async def extract_group(
