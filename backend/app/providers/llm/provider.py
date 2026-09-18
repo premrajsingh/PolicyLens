@@ -72,8 +72,8 @@ class OpenAICompatibleProvider:
         base_url: str,
         model: str,
         provider_name: str = "openai",
-        timeout: float = 90,
-        max_attempts: int = 5,
+        timeout: float = 40,
+        max_attempts: int = 2,
         missing_key_message: str = "OPENAI_API_KEY is required when LLM_PROVIDER=openai",
     ) -> None:
         if not api_key:
@@ -154,7 +154,7 @@ class OpenAICompatibleProvider:
                 )
                 try:
                     # Wait through short rate limits; cap long waits so demos can recover.
-                    wait = min(max(float(retry_after), 1), 90)
+                    wait = min(max(float(retry_after), 1), 20)
                 except ValueError:
                     wait = min(2**attempt * 10, 60)
                 logger.warning(

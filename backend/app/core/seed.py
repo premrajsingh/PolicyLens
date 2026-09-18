@@ -165,7 +165,14 @@ def hydrate_partial_from_samples(settings: Settings) -> int:
                         "extraction_errors"
                     ):
                         continue
-            elif doc.status not in {"partial", "processed", "error", "uploaded", "queued"}:
+            elif doc.status not in {
+                "partial",
+                "processed",
+                "error",
+                "uploaded",
+                "queued",
+                "processing",
+            }:
                 continue
 
             sample = _find_sample_json(doc.original_filename or doc.filename)

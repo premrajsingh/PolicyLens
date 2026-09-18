@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import re
@@ -457,50 +458,61 @@ class PipelineService:
             top_k = self.settings.top_k
             if group in BOOSTED_TOP_K_GROUPS:
                 top_k = max(top_k, 14)
-            # Small certificates fit whole: do not lose clauses to top-k retrieval.
-            # Long policies use hybrid retrieval plus per-field lexical evidence diversity.
-            if sum(len(p.page_text) for p in pages) <= 36000:
-                evidence_chunks = full_context
-            else:
-                retrieved = await hybrid_search(
-                    self.session,
-                    self.vector_store,
-                    self.embedder,
-                    query=query,
-                    document_id=document_id,
-                    top_k=top_k,
-                    source_file=document.filename,
-                )
-                from app.retrieval.hybrid import lexical_search
+            # Always retrieve a small evidence window. Sending full_context per group
+            # blows free-tier Groq TPD and can hang the extract job for minutes.
+            retrieved = await hybrid_search(
+                self.session,
+                self.vector_store,
+                self.embedder,
+                query=query,
+                document_id=document_id,
+                top_k=min(top_k, 8),
+                source_file=document.filename,
+            )
+            from app.retrieval.hybrid import lexical_search
 
-                unique = {c.chunk_id: c for c in retrieved}
-                for field_name in fields:
-                    for c in lexical_search(
-                        self.session,
-                        query=field_name.replace("_", " "),
-                        document_id=document_id,
-                        top_k=2,
-                    ):
-                        unique.setdefault(c.chunk_id, c)
+            unique = {c.chunk_id: c for c in retrieved}
+            for field_name in fields[:6]:
+                for c in lexical_search(
+                    self.session,
+                    query=field_name.replace("_", " "),
+                    document_id=document_id,
+                    top_k=1,
+                ):
+                    unique.setdefault(c.chunk_id, c)
+            evidence_chunks = [
+                {
+                    "chunk_id": c.chunk_id,
+                    "page_number": c.page_number,
+                    "section": c.section,
+                    "text": (c.text or "")[:500],
+                    "parser": c.parser,
+                    "source_file": document.filename,
+                    "score": c.score,
+                }
+                for c in list(unique.values())[:8]
+            ]
+            if not evidence_chunks:
                 evidence_chunks = [
                     {
-                        "chunk_id": c.chunk_id,
-                        "page_number": c.page_number,
-                        "section": c.section,
-                        "text": c.text,
-                        "parser": c.parser,
+                        "page_number": c.get("page_number"),
+                        "section": c.get("section"),
+                        "text": str(c.get("text") or "")[:500],
+                        "parser": c.get("parser"),
                         "source_file": document.filename,
-                        "score": c.score,
                     }
-                    for c in list(unique.values())[:24]
+                    for c in full_context[:4]
                 ]
             llm_payload: dict[str, Any] = {}
             try:
-                llm_payload = await self.llm.extract_group(
-                    group=group,
-                    fields=fields,
-                    evidence_chunks=evidence_chunks,
-                    source_file=document.filename,
+                llm_payload = await asyncio.wait_for(
+                    self.llm.extract_group(
+                        group=group,
+                        fields=fields,
+                        evidence_chunks=evidence_chunks,
+                        source_file=document.filename,
+                    ),
+                    timeout=45,
                 )
             except Exception as exc:
                 self._log(job, f"llm_error group={group} type={type(exc).__name__}")
