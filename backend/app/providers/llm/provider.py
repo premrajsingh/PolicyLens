@@ -323,10 +323,8 @@ def create_llm_provider(settings) -> LLMProvider:
     gemini_key = settings.gemini_api_key.get_secret_value() if settings.gemini_api_key else ""
     groq_key = settings.groq_api_key.get_secret_value() if settings.groq_api_key else ""
 
-    # Fast demo mode: Gemini Flash primary, Groq backup (both keys → failover).
-    if settings.llm_provider in {"gemini", "auto"} or (
-        settings.llm_provider == "groq" and gemini_key and groq_key
-    ):
+    # Fast demo mode: Gemini Flash primary, Groq backup when both keys exist.
+    if settings.llm_provider in {"gemini", "auto"}:
         providers: list[LLMProvider] = []
         if gemini_key:
             providers.append(GeminiProvider(api_key=gemini_key, model=settings.gemini_model))
@@ -336,11 +334,10 @@ def create_llm_provider(settings) -> LLMProvider:
             return FailoverLLMProvider(providers[0], providers[1])
         if len(providers) == 1:
             return providers[0]
-        if settings.llm_provider == "gemini":
-            raise ValueError("GEMINI_API_KEY is required when LLM_PROVIDER=gemini")
+        raise ValueError(
+            "LLM_PROVIDER=gemini|auto requires GEMINI_API_KEY and/or GROQ_API_KEY"
+        )
 
     if settings.llm_provider == "groq":
         return _groq_provider(settings)
-    if settings.llm_provider == "gemini":
-        return GeminiProvider(api_key=gemini_key, model=settings.gemini_model)
     raise ValueError(f"Unknown LLM_PROVIDER={settings.llm_provider}")
