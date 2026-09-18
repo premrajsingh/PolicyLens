@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import asyncio
 import base64
 import logging
 import secrets
@@ -23,7 +22,7 @@ from app.api import (
 from app.config import get_settings
 from app.core.errors import AppError, app_error_handler, http_error_handler, unhandled_error_handler
 from app.core.logging import new_request_id, request_id_ctx, setup_logging
-from app.core.seed import seed_sample_policies_if_empty
+from app.core.seed import restore_demo_seed_if_needed
 from app.db.models import Document, ProcessingJob, utcnow
 from app.db.session import get_engine, init_db
 
@@ -40,6 +39,8 @@ async def lifespan(_: FastAPI):
     settings.ensure_dirs()
     if settings.app_env == "production" and settings.require_basic_auth and not settings.demo_password:
         raise RuntimeError("Set DEMO_PASSWORD when REQUIRE_BASIC_AUTH=true")
+    # Restore bundled demo before opening SQLite (survives Render free-tier wipes).
+    restore_demo_seed_if_needed(settings)
     init_db(settings)
     # Background tasks do not survive a restart. Surface interrupted work honestly.
     with Session(get_engine(settings)) as session:
@@ -57,14 +58,7 @@ async def lifespan(_: FastAPI):
             doc.error_message = "Interrupted by server restart. Retry extraction."
             session.add(doc)
         session.commit()
-    # Fill empty demos after sleep/redeploy without blocking health checks.
-    seed_task = asyncio.create_task(seed_sample_policies_if_empty(settings))
     yield
-    seed_task.cancel()
-    try:
-        await seed_task
-    except asyncio.CancelledError:
-        pass
     await close_graph_store()
 
 def create_app() -> FastAPI:

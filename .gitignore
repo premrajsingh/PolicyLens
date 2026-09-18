@@ -32,6 +32,8 @@ data/vector_store/*
 data/graph_store/*
 !data/graph_store/.gitkeep
 !data/sample_policies/
+!data/demo_seed/
+!data/demo_seed/**
 
 # OS
 .DS_Store

@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir -r requirements.lock && pip install --no-deps .
 COPY --from=frontend /web/dist ./static
 COPY data/sample_policies ./sample_policies
 COPY outputs/sample ./sample_outputs
+COPY data/demo_seed ./demo_seed
 RUN mkdir -p /data && chown -R policylens:policylens /data /app
 ENV DATA_DIR=/data OUTPUT_DIR=/data/outputs DATABASE_URL=sqlite:////data/policylens.db \
     AUTO_SEED_SAMPLES=true
