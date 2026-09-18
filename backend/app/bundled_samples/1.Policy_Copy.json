@@ -1,0 +1,1606 @@
+{
+  "schema_version": "1.1.0",
+  "pipeline_version": "0.2.0",
+  "document": {
+    "document_id": "50c6f469-659c-4608-8efe-c9bd5b23f399",
+    "filename": "1.Policy Copy.pdf",
+    "content_hash": "b25b9244855d842f5ac4c7a1379af9adeda9fc248b5b853ee86ccb7f1270bedf",
+    "page_count": 4,
+    "ocr_used": false,
+    "parsers": [
+      "text"
+    ]
+  },
+  "insurer": {
+    "value": "Care Health Insurance Ltd.",
+    "normalized_value": "Care Health Insurance Ltd.",
+    "status": "covered",
+    "raw_text": "Care Health Insurance Ltd.",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 1,
+        "quote": "Name | Code | Contact Number\nCare Health Insurance Ltd. | Direct | 1800-102-6655",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      },
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 4,
+        "quote": "Claims Servicing Team\nName of Service Address Phone Fax Email\nCare Health Vipul Tech Square, Tower C, 3rd Floor, Sector 43, Golf Course 1800-102- 1800-200- Claims@careinsurance.\nInsurance Ltd Road Gurgaon - 122009 4488 6677 com",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "tpa": {
+    "value": null,
+    "normalized_value": null,
+    "status": "unknown",
+    "raw_text": null,
+    "conditions": [],
+    "confidence": 0.0,
+    "evidence": [],
+    "warnings": [],
+    "conflicts": []
+  },
+  "claims_administrator": {
+    "value": "Care Health Insurance Ltd.",
+    "normalized_value": "Care Health Insurance Ltd.",
+    "status": "covered",
+    "raw_text": "Care Health Insurance Ltd.",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 4,
+        "quote": "Claims Servicing Team\nName of Service Address Phone Fax Email\nCare Health Vipul Tech Square, Tower C, 3rd Floor, Sector 43, Golf Course 1800-102- 1800-200- Claims@careinsurance.\nInsurance Ltd Road Gurgaon - 122009 4488 6677 com",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "policy_type": {
+    "value": "gmc",
+    "normalized_value": "gmc",
+    "status": "covered",
+    "raw_text": null,
+    "conditions": [],
+    "confidence": 1.0,
+    "evidence": [
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 1,
+        "quote": "Policy Certificate - Group Care 360 °",
+        "section": "general",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "policy_number": {
+    "value": "41201895",
+    "normalized_value": "41201895",
+    "status": "covered",
+    "raw_text": "Policy No 41201895",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 1,
+        "quote": "AAYUV TECHNOLOGIES PRIVATE LIMITED Policy No 41201895",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      },
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 1,
+        "quote": "[TABLE]\nPolicy No | 41201895",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "group_company_name": {
+    "value": "AAYUV TECHNOLOGIES PRIVATE LIMITED",
+    "normalized_value": "AAYUV TECHNOLOGIES PRIVATE LIMITED",
+    "status": "covered",
+    "raw_text": "AAYUV TECHNOLOGIES PRIVATE LIMITED",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 1,
+        "quote": "AAYUV TECHNOLOGIES PRIVATE LIMITED Policy No 41201895",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      },
+      {
+        "source_file": "1.Policy Copy.pdf",
+        "page_number": 1,
+        "quote": "Name of Policyholder\nPRIVATE LIMITED",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "previous_policy": {
+    "inception_renewal_date": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "policy_period_start": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    },
+    "policy_period_end": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    },
+    "tenure": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "previous_inception_premium": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "renewal_premium": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "raw_policy_period_text": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    }
+  },
+  "current_policy": {
+    "policy_period_start": {
+      "value": "02-Apr-2022",
+      "normalized_value": "2022-04-02",
+      "status": "covered",
+      "raw_text": "Policy Period - Start Date 00:00 hrs 02-Apr-2022",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "Policy Period - Start Date 00:00 hrs 02-Apr-2022",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "policy_period_end": {
+      "value": "01-Apr-2023",
+      "normalized_value": "2023-04-01",
+      "status": "covered",
+      "raw_text": "Policy Period - End Date Midnight 01-Apr-2023",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "Policy Period - End Date Midnight 01-Apr-2023",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "inception_date": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "net_premium": {
+      "value": 349469.0,
+      "normalized_value": 349469.0,
+      "status": "covered",
+      "raw_text": "Premium CGST IGST SGST UGST Total Premium Premium Payment Mode\n` 349,469 ` 0 ` 62904.39 `0 ` 0 ` 412,373 ANNUAL PREMIUM",
+      "conditions": [
+        "Premium excluding tax."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "Premium CGST IGST SGST UGST Total Premium Premium Payment Mode\n` 349,469 ` 0 ` 62904.39 `0 ` 0 ` 412,373 ANNUAL PREMIUM",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "gross_premium": {
+      "value": 412373.0,
+      "normalized_value": 412373.0,
+      "status": "covered",
+      "raw_text": "Premium CGST IGST SGST UGST Total Premium Premium Payment Mode\n` 349,469 ` 0 ` 62904.39 `0 ` 0 ` 412,373 ANNUAL PREMIUM",
+      "conditions": [
+        "Total premium including tax."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "Premium CGST IGST SGST UGST Total Premium Premium Payment Mode\n` 349,469 ` 0 ` 62904.39 `0 ` 0 ` 412,373 ANNUAL PREMIUM",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "aggregate_sum_insured": {
+      "value": "51,900,000",
+      "normalized_value": 51900000.0,
+      "status": "covered",
+      "raw_text": "` 51,900,000`",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "S No. | Particulars | Amount\n1 | Total Sum Insured | ` 51,900,000",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "policy_structure": {
+    "employee": {
+      "value": "Self (employee) covered",
+      "normalized_value": "Self (employee) covered",
+      "status": "covered",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Family Structure : Self + Spouse + 2 Dependent children",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "spouse": {
+      "value": "Spouse covered",
+      "normalized_value": "Spouse covered",
+      "status": "covered",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Family Structure : Self + Spouse + 2 Dependent children",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "children": {
+      "value": "Up to 2 dependent children covered",
+      "normalized_value": "Up to 2 dependent children covered",
+      "status": "covered",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Family Structure : Self + Spouse + 2 Dependent children",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents_in_law": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "other_family_members": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "family_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "covered",
+      "raw_text": null,
+      "conditions": [
+        "Child age up to 25 years",
+        "Employee/Spouse age up to 70 years",
+        "Dependents must be declared at inception",
+        "Mid-term inclusion of only Child by birth and Spouse after marriage allowed"
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Age Limit: Child age up to 25 years and Employee/Spouse age up to 70 years",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        },
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 3,
+          "quote": "If Dependents are to be covered under Family Structure, then the same needs to be declared at the time of inception of the Policy.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        },
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 3,
+          "quote": "Mid-term inclusion of only Child by birth and Spouse after marriage falling during the Policy period is allowed.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "sum_insured_tiers": {
+      "value": [
+        300000.0,
+        500000.0
+      ],
+      "normalized_value": [
+        300000.0,
+        500000.0
+      ],
+      "status": "covered",
+      "raw_text": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+      "conditions": [],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "demographics": {
+    "employees": {
+      "value": 115,
+      "normalized_value": 115,
+      "status": "covered",
+      "raw_text": "Primary Insured Members 115",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "1 Primary Insured Members 115",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "spouses": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "children": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents_in_law": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "other_dependents": {
+      "value": 32,
+      "normalized_value": 32,
+      "status": "covered",
+      "raw_text": "2 Dependents 32",
+      "conditions": [
+        "Combined dependents; no spouse/child/parent split is stated here."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "2 Dependents 32",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "total_lives_covered": {
+      "value": 147,
+      "normalized_value": 147,
+      "status": "covered",
+      "raw_text": "Total 147",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 1,
+          "quote": "Total 147",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "hospitalization": {
+    "room_rent_status": {
+      "value": "Covered",
+      "normalized_value": "Covered",
+      "status": "covered",
+      "raw_text": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+      "conditions": [
+        "If the Insured Member is admitted in a room where the room rent incurred is higher than the room rent limit specified above, then the\nInsured Member shall bear the ratable proportion of the total Medical Expenses in the proportion of the room rent actually incurred-\nroom rent limit/room rent actually incurred."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "room_rent_percentage": {
+      "value": 2.0,
+      "normalized_value": 2.0,
+      "status": "covered",
+      "raw_text": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+      "conditions": [
+        "Percentage of the applicable sum insured per day.",
+        "If the Insured Member is admitted in a room where the room rent incurred is higher than the room rent limit specified above, then the\nInsured Member shall bear the ratable proportion of the total Medical Expenses in the proportion of the room rent actually incurred-\nroom rent limit/room rent actually incurred."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "room_rent_monetary_maximum": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [
+        "The source gives a percentage of sum insured; no separate monetary maximum is stated."
+      ],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "icu_status": {
+      "value": "Covered",
+      "normalized_value": "Covered",
+      "status": "covered",
+      "raw_text": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+      "conditions": [
+        "If the Insured Member is admitted in a room where the room rent incurred is higher than the room rent limit specified above, then the\nInsured Member shall bear the ratable proportion of the total Medical Expenses in the proportion of the room rent actually incurred-\nroom rent limit/room rent actually incurred."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "icu_percentage": {
+      "value": 4.0,
+      "normalized_value": 4.0,
+      "status": "covered",
+      "raw_text": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+      "conditions": [
+        "Percentage of the applicable sum insured per day.",
+        "If the Insured Member is admitted in a room where the room rent incurred is higher than the room rent limit specified above, then the\nInsured Member shall bear the ratable proportion of the total Medical Expenses in the proportion of the room rent actually incurred-\nroom rent limit/room rent actually incurred."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Sum Insured Maximum eligibility for Normal Hospitalization Maximum eligibility for ICU Hospitalization\nRs. 300,000 2 % of Sum Insured per day 4 % of Sum Insured per day\nRs. 500,000 2 % of Sum Insured per day 4 % of Sum Insured per day",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "icu_monetary_maximum": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [
+        "The source gives a percentage of sum insured; no separate monetary maximum is stated."
+      ],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "pre_hospitalization_days": {
+      "value": "30 days",
+      "normalized_value": 30,
+      "status": "covered",
+      "raw_text": "Pre & Post Hospitalization is covered for 30 days and 60 days respectively.",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Pre & Post Hospitalization is covered for 30 days and 60 days respectively.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "post_hospitalization_days": {
+      "value": "60 days",
+      "normalized_value": 60,
+      "status": "covered",
+      "raw_text": "Pre & Post Hospitalization is covered for 30 days and 60 days respectively.",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Pre & Post Hospitalization is covered for 30 days and 60 days respectively.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [
+        "If the Insured Member is admitted in a room where the room rent incurred is higher than the room rent limit specified above, then the Insured Member shall bear the ratable proportion of the total Medical Expenses in the proportion of the room rent actually incurred‑room rent limit/room rent actually incurred."
+      ],
+      "confidence": 0.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "If the Insured Member is admitted in a room where the room rent incurred is higher than the room rent limit specified above, then the Insured Member shall bear the ratable proportion of the total Medical Expenses in the proportion of the room rent actually incurred‑room rent limit/room rent actually incurred.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "maternity": {
+    "normal_delivery_limit": {
+      "value": "Rs. 50,000",
+      "normalized_value": 50000.0,
+      "status": "covered",
+      "raw_text": "Maximum Limit for Maternity claims is Rs. 50,000 for Normal and Rs. 50,000 for LSCS .",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Maximum Limit for Maternity claims is Rs. 50,000 for Normal and Rs. 50,000 for LSCS .",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "csection_limit": {
+      "value": "Rs. 50,000",
+      "normalized_value": 50000.0,
+      "status": "covered",
+      "raw_text": "Maximum Limit for Maternity claims is Rs. 50,000 for Normal and Rs. 50,000 for LSCS .",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Maximum Limit for Maternity claims is Rs. 50,000 for Normal and Rs. 50,000 for LSCS .",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "nine_month_waiting_period_status": {
+      "value": "waived",
+      "normalized_value": "waived",
+      "status": "waived_off",
+      "raw_text": "9 month waiting period in respect of maternity claims waived for all Insured Members.",
+      "conditions": [],
+      "confidence": 0.98,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "9 month waiting period in respect of maternity claims waived for all Insured Members.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "nine_month_waiting_period_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "baby_day_one_cover": {
+      "value": "New Born Baby covered from day one within family floater Sum Insured.",
+      "normalized_value": "New Born Baby covered from day one within family floater Sum Insured.",
+      "status": "covered",
+      "raw_text": "New Born Baby covered from day one within family floater Sum Insured.",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "New Born Baby covered from day one within family floater Sum Insured.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "vaccination_coverage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "vaccination_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "normal_delivery_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "normal_delivery_non_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "csection_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "csection_non_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "maternity_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "covered",
+      "raw_text": null,
+      "conditions": [
+        "Maternity claim is payable for first two dependent children only.",
+        "Maternity Expenses Benefit is available for Employees or Spouse Only if covered in data."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Maternity claim is payable for first two dependent children only.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        },
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Maternity Expenses Benefit is available for Employees or Spouse Only if covered in data.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "maternity_exclusions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_covered",
+      "raw_text": null,
+      "conditions": [
+        "Pre & Post natal expenses are not covered."
+      ],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Pre & Post natal expenses are not covered.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "waiting_periods": {
+    "initial_30_day_status": {
+      "value": "Waived for existing members and new joinees",
+      "normalized_value": "Waived for existing members and new joinees",
+      "status": "waived_off",
+      "raw_text": "30 Days Wait Period condition is waived for existing members and new joinees.",
+      "conditions": [],
+      "confidence": 0.98,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "30 Days Wait Period condition is waived for existing members and new joinees.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "initial_30_day_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [
+        "Existing members",
+        "New joinees"
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "30 Days Wait Period condition is waived for existing members and new joinees.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "first_year_waiting_period_status": {
+      "value": "Waived for all Insured Members",
+      "normalized_value": "Waived for all Insured Members",
+      "status": "waived_off",
+      "raw_text": "First & Second year exclusion condition for specific diseases is waived for all Insured Members.",
+      "conditions": [],
+      "confidence": 0.98,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "First & Second year exclusion condition for specific diseases is waived for all Insured Members.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "second_year_waiting_period_status": {
+      "value": "Waived for all Insured Members",
+      "normalized_value": "Waived for all Insured Members",
+      "status": "waived_off",
+      "raw_text": "First & Second year exclusion condition for specific diseases is waived for all Insured Members.",
+      "conditions": [],
+      "confidence": 0.98,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "First & Second year exclusion condition for specific diseases is waived for all Insured Members.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "first_second_year_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [
+        "All Insured Members"
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "First & Second year exclusion condition for specific diseases is waived for all Insured Members.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ped_waiting_period_status": {
+      "value": "Waived off",
+      "normalized_value": "Waived off",
+      "status": "waived_off",
+      "raw_text": "Pre-existing diseases are covered for existing members and new joinees.",
+      "conditions": [
+        "Applies to existing members and new joinees."
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Pre-existing diseases are covered for existing members and new joinees.",
+          "section": "schedule",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ped_duration": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ped_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [
+        "Existing members",
+        "New joinees"
+      ],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Pre-existing diseases are covered for existing members and new joinees.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "other_benefits": {
+    "day_care_expenses": {
+      "value": "Day Care Treatment covered (no specific monetary limit mentioned)",
+      "normalized_value": "Day Care Treatment covered (no specific monetary limit mentioned)",
+      "status": "covered",
+      "raw_text": "Day Care Treatment : List of Day Care procedure attached as “Annexure A under Know your policy Better”",
+      "conditions": [],
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Day Care Treatment : List of Day Care procedure attached as “Annexure A under Know your policy Better”",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "opd": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "teleconsultation": {
+      "value": "Econsultation (General Physician) covered",
+      "normalized_value": "Econsultation (General Physician) covered",
+      "status": "covered",
+      "raw_text": "Econsultation (General Physician) covred in the policy.",
+      "conditions": [],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Econsultation (General Physician) covred in the policy.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "pharmacy_discount": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "domiciliary_hospitalization": {
+      "value": "Domiciliary Hospitalization is specifically excluded",
+      "normalized_value": "Domiciliary Hospitalization is specifically excluded",
+      "status": "not_covered",
+      "raw_text": "Domiciliary Hospitalization is specifically excluded unless mentioned specifically.",
+      "conditions": [],
+      "confidence": 0.98,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 3,
+          "quote": "Domiciliary Hospitalization is specifically excluded unless mentioned specifically.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "annual_health_check_up": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "modern_treatment": {
+      "value": "Covered up to 50% of the Sum Insured",
+      "normalized_value": 50,
+      "status": "covered",
+      "raw_text": "Modern treatments, psychiatric treatments and Bariatric Surgery covered under the policy as per terms and conditions upto 50% of the Sum Insured.",
+      "conditions": [],
+      "confidence": 0.96,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Modern treatments, psychiatric treatments and Bariatric Surgery covered under the policy as per terms and conditions upto 50% of the Sum Insured.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "bariatric_treatment": {
+      "value": "Covered up to 50% of the Sum Insured",
+      "normalized_value": 50,
+      "status": "covered",
+      "raw_text": "Modern treatments, psychiatric treatments and Bariatric Surgery covered under the policy as per terms and conditions upto 50% of the Sum Insured.",
+      "conditions": [],
+      "confidence": 0.96,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Modern treatments, psychiatric treatments and Bariatric Surgery covered under the policy as per terms and conditions upto 50% of the Sum Insured.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "psychiatric_treatment": {
+      "value": "Covered up to 50% of the Sum Insured",
+      "normalized_value": 50,
+      "status": "covered",
+      "raw_text": "Modern treatments, psychiatric treatments and Bariatric Surgery covered under the policy as per terms and conditions upto 50% of the Sum Insured.",
+      "conditions": [],
+      "confidence": 0.96,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Modern treatments, psychiatric treatments and Bariatric Surgery covered under the policy as per terms and conditions upto 50% of the Sum Insured.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ayush_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "lgbtq_coverage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "live_in_partner_coverage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "organ_donor_expenses": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "infertility_and_ambulance": {
+    "infertility_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_covered",
+      "raw_text": "Infertility & related ailments including male sterility , treatment on trial /experimental basis; expenses on fitting of prosthesis (any device /instrument/contributing machine/replacing the functions of an organ) holter monitoring are outside the scope of this policy.",
+      "conditions": [],
+      "confidence": 0.98,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 3,
+          "quote": "Infertility & related ailments including male sterility , treatment on trial /experimental basis; expenses on fitting of prosthesis (any device /instrument/contributing machine/replacing the functions of an organ) holter monitoring are outside the scope of this policy.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "surrogacy": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "infertility_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "surrogacy_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ambulance_charges": {
+      "value": "Rs. 2,000 per claim",
+      "normalized_value": 2000,
+      "status": "covered",
+      "raw_text": "Ambulance charges payable up to a maximum amount of Rs. 2,000/- per claim.",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Ambulance charges payable up to a maximum amount of Rs. 2,000/- per claim.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ambulance_limits": {
+      "value": "Rs. 2,000 per claim",
+      "normalized_value": 2000.0,
+      "status": "covered",
+      "raw_text": "Ambulance charges payable up to a maximum amount of Rs. 2,000/- per claim.",
+      "conditions": [],
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "Ambulance charges payable up to a maximum amount of Rs. 2,000/- per claim.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "air_ambulance_charges": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "air_ambulance_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "buffer_and_waivers": {
+    "corporate_buffer_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "disease_wise_capping": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "waiver_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": "1. Pre-existing diseases are covered for existing members and new joinees.\n2. 30 Days Wait Period condition is waived for existing members and new joinees.\n3. First & Second year exclusion condition for specific diseases is waived for all Insured Members.\n...\n5. 9 month waiting period in respect of maternity claims waived for all Insured Members.",
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "2. 30 Days Wait Period condition is waived for existing members and new joinees.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        },
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "3. First & Second year exclusion condition for specific diseases is waived for all Insured Members.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        },
+        {
+          "source_file": "1.Policy Copy.pdf",
+          "page_number": 2,
+          "quote": "5. 9 month waiting period in respect of maternity claims waived for all Insured Members.",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [
+        "evidence_quote_not_found",
+        "unsupported_claim"
+      ],
+      "conflicts": []
+    },
+    "additional_waivers": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "extraction_metadata": {
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "generated_at": "2026-09-17T16:03:18.418242+00:00",
+    "processing_duration_seconds": 407.314497,
+    "pinecone_indexing_status": "local_indexed",
+    "neo4j_sync_status": "local_synced",
+    "retrieval_method": "full_document",
+    "ocr_used": false,
+    "parsers_used": [
+      "text"
+    ],
+    "extraction_errors": [],
+    "completion_status": "complete",
+    "source_aliases": []
+  },
+  "validation": {
+    "overall_confidence": 0.976,
+    "evidence_coverage": 1.0,
+    "fields_found": 43,
+    "fields_missing": 47,
+    "fields_requiring_review": 4,
+    "conflict_count": 0,
+    "extraction_warnings": [],
+    "schema_valid": true,
+    "fields_not_applicable": 0,
+    "field_completeness": 0.4778,
+    "confidence_note": "Model confidence is not measured extraction accuracy."
+  }
+}

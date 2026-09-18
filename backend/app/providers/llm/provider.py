@@ -221,8 +221,9 @@ class GeminiProvider:
             "evidence_chunks": slim,
             "instructions": SYSTEM_PROMPT + "\n" + GROUP_INSTRUCTIONS.get(group, ""),
         }
+        # Try known-good models first; env may still pin a retired 404 model.
         models: list[str] = []
-        for candidate in (self.model, *self._MODEL_FALLBACKS):
+        for candidate in (*self._MODEL_FALLBACKS, self.model):
             if candidate and candidate not in models:
                 models.append(candidate)
 

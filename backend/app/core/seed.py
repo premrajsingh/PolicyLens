@@ -31,9 +31,11 @@ def demo_seed_dirs() -> list[Path]:
 
 def sample_output_dirs() -> list[Path]:
     here = Path(__file__).resolve()
-    # Docker: COPY outputs/sample → /app/sample_outputs
-    # Local: <repo>/outputs/sample
+    # 1) Always-on: JSON shipped inside the Python package (COPY backend/app)
+    # 2) Docker COPY outputs/sample → /app/sample_outputs
+    # 3) Local monorepo outputs/sample
     return [
+        here.parent / "bundled_samples",
         Path("/app/sample_outputs"),
         here.parents[2] / "sample_outputs",
         here.parents[2].parent / "outputs" / "sample",

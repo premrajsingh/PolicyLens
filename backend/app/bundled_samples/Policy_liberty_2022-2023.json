@@ -1,0 +1,1927 @@
+{
+  "schema_version": "1.1.0",
+  "pipeline_version": "0.2.0",
+  "document": {
+    "document_id": "e726f24f-877e-4814-bf7a-a81b984b347d",
+    "filename": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+    "content_hash": "1cb6cb1abac746f16fe027dfcab26918dcb2a06ce094a8782df5244511e51918",
+    "page_count": 3,
+    "ocr_used": false,
+    "parsers": [
+      "text"
+    ]
+  },
+  "insurer": {
+    "value": "Liberty General Insurance Limited",
+    "normalized_value": "Liberty General Insurance Limited",
+    "status": "covered",
+    "raw_text": "Liberty General Insurance Limited",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+        "page_number": 2,
+        "quote": "Liberty General Insurance Limited",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "tpa": {
+    "value": null,
+    "normalized_value": null,
+    "status": "unknown",
+    "raw_text": null,
+    "conditions": [],
+    "confidence": 0.0,
+    "evidence": [],
+    "warnings": [],
+    "conflicts": []
+  },
+  "claims_administrator": {
+    "value": null,
+    "normalized_value": null,
+    "status": "unknown",
+    "raw_text": null,
+    "conditions": [],
+    "confidence": 0.0,
+    "evidence": [],
+    "warnings": [],
+    "conflicts": []
+  },
+  "policy_type": {
+    "value": "gpa",
+    "normalized_value": "gpa",
+    "status": "covered",
+    "raw_text": null,
+    "conditions": [],
+    "confidence": 1.0,
+    "evidence": [
+      {
+        "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+        "page_number": 1,
+        "quote": "GROUP PERSONAL ACCIDENT POLICY",
+        "section": "general",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "policy_number": {
+    "value": "4112-200101-22-7001375-00-000",
+    "normalized_value": "4112-200101-22-7001375-00-000",
+    "status": "covered",
+    "raw_text": "Policy Number: 4112-200101-22-7001375-00-000",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+        "page_number": 1,
+        "quote": "Policy Number: 4112-200101-22-7001375-00-000",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "group_company_name": {
+    "value": "Net Catalysts",
+    "normalized_value": "Net Catalysts",
+    "status": "covered",
+    "raw_text": "Insured Name: Net Catalysts",
+    "conditions": [],
+    "confidence": 0.99,
+    "evidence": [
+      {
+        "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+        "page_number": 1,
+        "quote": "Insured Name: Net Catalysts",
+        "section": "document",
+        "parser": "text",
+        "retrieval_score": null
+      }
+    ],
+    "warnings": [],
+    "conflicts": []
+  },
+  "previous_policy": {
+    "inception_renewal_date": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "policy_period_start": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    },
+    "policy_period_end": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    },
+    "tenure": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    },
+    "previous_inception_premium": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "renewal_premium": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "raw_policy_period_text": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "historical_context_not_explicit"
+      ],
+      "conflicts": []
+    }
+  },
+  "current_policy": {
+    "policy_period_start": {
+      "value": "02/06/2022",
+      "normalized_value": "2022-06-02",
+      "status": "covered",
+      "raw_text": "Period of Insurance: From 00:00 Hrs of 02/06/2022 To Midnight 23:59 Hrs of 01/06/2023",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "Period of Insurance: From 00:00 Hrs of 02/06/2022 To Midnight 23:59 Hrs of 01/06/2023",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "policy_period_end": {
+      "value": "01/06/2023",
+      "normalized_value": "2023-06-01",
+      "status": "covered",
+      "raw_text": "Period of Insurance: From 00:00 Hrs of 02/06/2022 To Midnight 23:59 Hrs of 01/06/2023",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "Period of Insurance: From 00:00 Hrs of 02/06/2022 To Midnight 23:59 Hrs of 01/06/2023",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "inception_date": {
+      "value": null,
+      "normalized_value": null,
+      "status": "unknown",
+      "raw_text": null,
+      "conditions": [],
+      "confidence": 0.0,
+      "evidence": [],
+      "warnings": [
+        "inception_not_explicit"
+      ],
+      "conflicts": []
+    },
+    "net_premium": {
+      "value": "Rs.9600.00",
+      "normalized_value": 9600.0,
+      "status": "covered",
+      "raw_text": "Net Premium (Taxable Value) Rs.9600.00",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "Net Premium (Taxable Value) Rs.9600.00",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "gross_premium": {
+      "value": "Rs.11328.00",
+      "normalized_value": 11328.0,
+      "status": "covered",
+      "raw_text": "Total Premium Rs.11328.00",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "Total Premium Rs.11328.00",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "aggregate_sum_insured": {
+      "value": "Rs.24000000",
+      "normalized_value": 24000000.0,
+      "status": "covered",
+      "raw_text": "Total 48 | Total 24000000",
+      "conditions": [],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 3,
+          "quote": "Total 48 | Total 24000000",
+          "section": "document",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "policy_structure": {
+    "employee": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "spouse": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "children": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents_in_law": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "other_family_members": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "family_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "sum_insured_tiers": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "demographics": {
+    "employees": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "spouses": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "children": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "parents_in_law": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "other_dependents": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "total_lives_covered": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "hospitalization": {
+    "room_rent_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "room_rent_percentage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "room_rent_monetary_maximum": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "icu_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "icu_percentage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "icu_monetary_maximum": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "pre_hospitalization_days": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "post_hospitalization_days": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "maternity": {
+    "normal_delivery_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "csection_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "nine_month_waiting_period_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "nine_month_waiting_period_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "baby_day_one_cover": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "vaccination_coverage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "vaccination_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "normal_delivery_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "normal_delivery_non_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "csection_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "csection_non_metro_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "maternity_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "maternity_exclusions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "waiting_periods": {
+    "initial_30_day_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "initial_30_day_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "first_year_waiting_period_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "second_year_waiting_period_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "first_second_year_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ped_waiting_period_status": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ped_duration": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ped_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "other_benefits": {
+    "day_care_expenses": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "opd": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "teleconsultation": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "pharmacy_discount": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "domiciliary_hospitalization": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "annual_health_check_up": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "modern_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "bariatric_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "psychiatric_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ayush_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "lgbtq_coverage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "live_in_partner_coverage": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "organ_donor_expenses": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "infertility_and_ambulance": {
+    "infertility_treatment": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "surrogacy": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "infertility_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "surrogacy_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ambulance_charges": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "ambulance_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "air_ambulance_charges": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "air_ambulance_limits": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "buffer_and_waivers": {
+    "corporate_buffer_limit": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "disease_wise_capping": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "waiver_conditions": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    },
+    "additional_waivers": {
+      "value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "raw_text": null,
+      "conditions": [
+        "The source is a Group Personal Accident policy, outside GMC extraction scope."
+      ],
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_file": "Net Catalyst - GPA - Policy Copy - 2022-23.pdf",
+          "page_number": 1,
+          "quote": "GROUP PERSONAL ACCIDENT POLICY",
+          "section": "general",
+          "parser": "text",
+          "retrieval_score": null
+        }
+      ],
+      "warnings": [],
+      "conflicts": []
+    }
+  },
+  "extraction_metadata": {
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "generated_at": "2026-09-17T16:17:27.345280+00:00",
+    "processing_duration_seconds": 142.237811,
+    "pinecone_indexing_status": "local_indexed",
+    "neo4j_sync_status": "local_synced",
+    "retrieval_method": "full_document",
+    "ocr_used": false,
+    "parsers_used": [
+      "text"
+    ],
+    "extraction_errors": [],
+    "completion_status": "complete",
+    "source_aliases": [
+      "Policy liberty 2022-2023.pdf"
+    ]
+  },
+  "validation": {
+    "overall_confidence": 0.9967,
+    "evidence_coverage": 1.0,
+    "fields_found": 9,
+    "fields_missing": 10,
+    "fields_requiring_review": 5,
+    "conflict_count": 0,
+    "extraction_warnings": [],
+    "schema_valid": true,
+    "fields_not_applicable": 71,
+    "field_completeness": 0.4737,
+    "confidence_note": "Model confidence is not measured extraction accuracy."
+  }
+}
