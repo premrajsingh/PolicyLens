@@ -181,12 +181,19 @@ class OpenAICompatibleProvider:
 
 class GeminiProvider:
     name = "gemini"
+    # Prefer currently available flash models; 2.0-flash is retired (404).
+    _MODEL_FALLBACKS = (
+        "gemini-2.5-flash",
+        "gemini-flash-latest",
+        "gemini-3.5-flash",
+        "gemini-2.5-flash-lite",
+    )
 
     def __init__(self, *, api_key: str, model: str) -> None:
         if not api_key:
             raise ValueError("GEMINI_API_KEY is required when LLM_PROVIDER=gemini")
         self.api_key = api_key
-        self.model = model or "gemini-flash-latest"
+        self.model = model or "gemini-2.5-flash"
         self._base = "https://generativelanguage.googleapis.com/v1beta"
 
     async def extract_group(
@@ -214,26 +221,55 @@ class GeminiProvider:
             "evidence_chunks": slim,
             "instructions": SYSTEM_PROMPT + "\n" + GROUP_INSTRUCTIONS.get(group, ""),
         }
-        url = f"{self._base}/models/{self.model}:generateContent"
+        models: list[str] = []
+        for candidate in (self.model, *self._MODEL_FALLBACKS):
+            if candidate and candidate not in models:
+                models.append(candidate)
+
+        last_error: Exception | None = None
         async with httpx.AsyncClient(timeout=40) as client:
-            resp = await client.post(
-                url,
-                headers={"x-goog-api-key": self.api_key},
-                json={
-                    "contents": [{"parts": [{"text": json.dumps(prompt)}]}],
-                    "generationConfig": {
-                        "temperature": 0,
-                        "responseMimeType": "application/json",
-                        "maxOutputTokens": 2048,
-                    },
-                },
-            )
-            if resp.status_code >= 400:
-                detail = (resp.text or "")[:160].replace("\n", " ")
-                raise RuntimeError(f"Gemini HTTP {resp.status_code}: {detail}")
-            data = resp.json()
-        text = data["candidates"][0]["content"]["parts"][0]["text"]
-        return json.loads(text)
+            for model in models:
+                url = f"{self._base}/models/{model}:generateContent"
+                try:
+                    resp = await client.post(
+                        url,
+                        headers={"x-goog-api-key": self.api_key},
+                        json={
+                            "contents": [{"parts": [{"text": json.dumps(prompt)}]}],
+                            "generationConfig": {
+                                "temperature": 0,
+                                "responseMimeType": "application/json",
+                                "maxOutputTokens": 2048,
+                            },
+                        },
+                    )
+                    if resp.status_code in {404, 503, 429}:
+                        last_error = RuntimeError(
+                            f"Gemini HTTP {resp.status_code} model={model}: "
+                            f"{(resp.text or '')[:120].replace(chr(10), ' ')}"
+                        )
+                        logger.warning(
+                            "gemini_model_retry group=%s model=%s status=%s",
+                            group,
+                            model,
+                            resp.status_code,
+                        )
+                        continue
+                    if resp.status_code >= 400:
+                        detail = (resp.text or "")[:160].replace("\n", " ")
+                        raise RuntimeError(f"Gemini HTTP {resp.status_code}: {detail}")
+                    data = resp.json()
+                    text = data["candidates"][0]["content"]["parts"][0]["text"]
+                    self.model = model
+                    return json.loads(text)
+                except RuntimeError:
+                    raise
+                except Exception as exc:  # noqa: BLE001
+                    last_error = exc
+                    continue
+        raise RuntimeError(
+            f"Gemini failed for {group} ({type(last_error).__name__}: {str(last_error)[:160]})"
+        )
 
     async def healthcheck(self) -> HealthStatus:
         return HealthStatus(
