@@ -17,12 +17,18 @@ router = APIRouter(tags=["health"])
 
 @router.get("/api/health")
 def health() -> dict:
+    from app.core.seed import bundled_sample_count, sample_output_dirs
+
+    dirs = sample_output_dirs()
     return {
         "status": "ok",
         "app": APP_NAME,
         "subtitle": APP_SUBTITLE,
         "schema_version": SCHEMA_VERSION,
         "pipeline_version": PIPELINE_VERSION,
+        "deploy_marker": "hydrate-first-v2",
+        "bundled_sample_count": bundled_sample_count(),
+        "sample_dirs_present": [str(d) for d in dirs if d.is_dir()],
     }
 
 

@@ -48,12 +48,41 @@ def _safe_stem(name: str) -> str:
     return re.sub(r"[^A-Za-z0-9._\-]+", "_", Path(name).stem)[:120]
 
 
+# Explicit demo PDF → bundled JSON (survives OCR-export / spacing filename drift).
+_SAMPLE_ALIASES: dict[str, str] = {
+    "1.policy_copy": "1.Policy_Copy.json",
+    "1.policy copy": "1.Policy_Copy.json",
+    "ghi_policy": "GHI_Policy.json",
+    "ghi policy": "GHI_Policy.json",
+    "policy_liberty_2022-2023": "Policy_liberty_2022-2023.json",
+    "net_catalyst_-_gpa_-_policy_copy_-_2022-23": "Net_Catalyst_-_GPA_-_Policy_Copy_-_2022-23.json",
+    "olj4ktuo9b1546-1692687606_925469_-_00_gmc_renewal_policy_00": (
+        "olj4KTUo9B1546-1692687606_925469_-_00_GMC_Renewal_Policy_00.json"
+    ),
+}
+
+
+def bundled_sample_count() -> int:
+    total = 0
+    seen: set[str] = set()
+    for d in sample_output_dirs():
+        if not d.is_dir():
+            continue
+        for p in d.glob("*.json"):
+            if p.name not in seen:
+                seen.add(p.name)
+                total += 1
+    return total
+
+
 def _find_sample_json(filename: str, output_dirs: list[Path] | None = None) -> Path | None:
     stem = Path(filename).stem
     dirs = output_dirs or sample_output_dirs()
+    safe = _safe_stem(stem)
     # #region agent log
     try:
         import time as _time
+
         _payload = {
             "sessionId": "35e57c",
             "hypothesisId": "B",
@@ -83,7 +112,22 @@ def _find_sample_json(filename: str, output_dirs: list[Path] | None = None) -> P
     except Exception:
         pass
     # #endregion
-    candidates = [f"{stem}.json", f"{_safe_stem(stem)}.json"]
+
+    alias_keys = {
+        stem.lower(),
+        safe.lower(),
+        re.sub(r"\s+", " ", stem).strip().lower(),
+        re.sub(r"[\s_]+", "_", stem).strip("_").lower(),
+    }
+    alias_targets = {_SAMPLE_ALIASES[k] for k in alias_keys if k in _SAMPLE_ALIASES}
+
+    candidates = [f"{stem}.json", f"{safe}.json", *sorted(alias_targets)]
+    # Also try collapsing spaces around dashes for long OCR names
+    compact = re.sub(r"\s+", "_", stem)
+    if compact != stem:
+        candidates.append(f"{compact}.json")
+        candidates.append(f"{_safe_stem(compact)}.json")
+
     for out_dir in dirs:
         if not out_dir.is_dir():
             continue
@@ -93,6 +137,7 @@ def _find_sample_json(filename: str, output_dirs: list[Path] | None = None) -> P
                 # #region agent log
                 try:
                     import time as _time
+
                     _payload = {
                         "sessionId": "35e57c",
                         "hypothesisId": "B",
@@ -117,16 +162,21 @@ def _find_sample_json(filename: str, output_dirs: list[Path] | None = None) -> P
                     pass
                 # #endregion
                 return path
-        target = _safe_stem(stem).lower()
+        target = safe.lower()
         for path in sorted(out_dir.glob("*.json")):
-            if _safe_stem(path.stem).lower() == target:
-                return path
             sample = _safe_stem(path.stem).lower()
+            if sample == target:
+                return path
             if target.startswith(sample[:40]) or sample.startswith(target[:40]):
                 return path
+            # Match when live name has extra spaces vs bundled underscores
+            if re.sub(r"[\s_]+", "", target) == re.sub(r"[\s_]+", "", sample):
+                return path
+
     # #region agent log
     try:
         import time as _time
+
         _payload = {
             "sessionId": "35e57c",
             "hypothesisId": "B",

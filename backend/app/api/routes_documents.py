@@ -64,24 +64,14 @@ async def _auto_pipeline_batch_async(document_ids: list[str], settings: Settings
 
 
 async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
-    """Index the PDF, then prefer bundled sample QMS JSON (instant demo) over slow Groq."""
+    """Prefer bundled sample QMS JSON (instant demo) before any process/LLM work."""
     try:
         with Session(get_engine(settings)) as session:
             pipeline = PipelineService(settings, session)
             doc = session.get(Document, document_id)
             if not doc or doc.status == "duplicate":
                 return
-            if doc.status not in {"processed", "extracted"} or doc.pinecone_status not in {
-                "indexed",
-                "local_indexed",
-            }:
-                await pipeline.process_document(document_id, reprocess=True)
-            doc = session.get(Document, document_id)
-            if not doc or doc.extraction_status == "extracted":
-                logger.info("auto_pipeline_complete document_id=%s", document_id)
-                return
 
-            # Demo-fast path: published sample outputs ship in the image — no LLM wait.
             from app.core.seed import _find_sample_json, _persist_payload, sample_output_dirs
 
             fname = doc.original_filename or doc.filename
@@ -90,25 +80,33 @@ async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
             try:
                 import time as _time
                 from pathlib import Path as _P
+
                 _dirs = sample_output_dirs()
-                _line = json.dumps({
-                    "sessionId": "35e57c",
-                    "hypothesisId": "A",
-                    "location": "routes_documents.py:_auto_pipeline_async",
-                    "message": "sample_lookup",
-                    "data": {
-                        "document_id": document_id,
-                        "filename": fname,
-                        "sample": sample.name if sample else None,
-                        "dirs": [str(d) for d in _dirs],
-                        "dir_exists": [d.is_dir() for d in _dirs],
-                        "dir_json_count": [len(list(d.glob('*.json'))) if d.is_dir() else 0 for d in _dirs],
-                    },
-                    "timestamp": int(_time.time() * 1000),
-                    "runId": "pre-fix",
-                })
+                _line = json.dumps(
+                    {
+                        "sessionId": "35e57c",
+                        "hypothesisId": "A",
+                        "location": "routes_documents.py:_auto_pipeline_async",
+                        "message": "sample_lookup_first",
+                        "data": {
+                            "document_id": document_id,
+                            "filename": fname,
+                            "sample": sample.name if sample else None,
+                            "dirs": [str(d) for d in _dirs],
+                            "dir_exists": [d.is_dir() for d in _dirs],
+                            "dir_json_count": [
+                                len(list(d.glob("*.json"))) if d.is_dir() else 0 for d in _dirs
+                            ],
+                        },
+                        "timestamp": int(_time.time() * 1000),
+                        "runId": "pre-fix",
+                    }
+                )
                 logger.info("debug35e57c %s", _line)
-                for _p in (_P("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"), _P("/tmp/debug-35e57c.log")):
+                for _p in (
+                    _P("/Users/premrajsingh/Desktop/ai/.cursor/debug-35e57c.log"),
+                    _P("/tmp/debug-35e57c.log"),
+                ):
                     try:
                         _p.parent.mkdir(parents=True, exist_ok=True)
                         _p.open("a").write(_line + "\n")
@@ -119,6 +117,11 @@ async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
                 pass
             # #endregion
             if sample is not None:
+                # Demo path: skip PDF process + Gemini entirely.
+                if doc.status not in {"processed", "extracted", "partial"}:
+                    doc.status = "processed"
+                    session.add(doc)
+                    session.commit()
                 payload = json.loads(sample.read_text(encoding="utf-8"))
                 _persist_payload(session, doc, payload)
                 logger.info(
@@ -128,22 +131,29 @@ async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
                 )
                 return
 
-            # Last-resort demo: any bundled sample if filename fuzzy-missed
-            bundled = next((d for d in sample_output_dirs() if d.is_dir() and list(d.glob("*.json"))), None)
-            policy_copy = None
-            if bundled is not None:
-                for name in ("1.Policy_Copy.json", "GHI_Policy.json"):
-                    cand = bundled / name
-                    if cand.is_file() and "policy" in (fname or "").lower():
-                        policy_copy = cand
-                        break
-            if policy_copy is not None and "1.policy" in (fname or "").lower().replace(" ", ""):
-                payload = json.loads(policy_copy.read_text(encoding="utf-8"))
+            if doc.extraction_status == "extracted":
+                logger.info("auto_pipeline_complete document_id=%s", document_id)
+                return
+
+            if doc.status not in {"processed", "extracted"} or doc.pinecone_status not in {
+                "indexed",
+                "local_indexed",
+            }:
+                await pipeline.process_document(document_id, reprocess=True)
+            doc = session.get(Document, document_id)
+            if not doc or doc.extraction_status == "extracted":
+                logger.info("auto_pipeline_complete document_id=%s", document_id)
+                return
+
+            # Re-check sample after process (filename may only match post-normalize).
+            sample = _find_sample_json(doc.original_filename or doc.filename)
+            if sample is not None:
+                payload = json.loads(sample.read_text(encoding="utf-8"))
                 _persist_payload(session, doc, payload)
                 logger.info(
-                    "auto_pipeline_hydrated_fallback document_id=%s sample=%s",
+                    "auto_pipeline_hydrated document_id=%s sample=%s",
                     document_id,
-                    policy_copy.name,
+                    sample.name,
                 )
                 return
 
