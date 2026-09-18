@@ -52,6 +52,19 @@ def _auto_pipeline(document_id: str, settings: Settings) -> None:
     asyncio.run(_auto_pipeline_async(document_id, settings))
 
 
+def _auto_pipeline_batch(document_ids: list[str], settings: Settings) -> None:
+    """Process uploads one-by-one so free-tier LLM quotas are not burned in parallel."""
+    asyncio.run(_auto_pipeline_batch_async(document_ids, settings))
+
+
+async def _auto_pipeline_batch_async(document_ids: list[str], settings: Settings) -> None:
+    for i, document_id in enumerate(document_ids):
+        if i:
+            # Pause between policies to stay under Groq RPM/TPD on free tier.
+            await asyncio.sleep(8)
+        await _auto_pipeline_async(document_id, settings)
+
+
 async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
     """Process (Pinecone) then extract (Neo4j) in a fresh DB session."""
     try:
@@ -114,8 +127,9 @@ async def upload_documents(
                 auto_ids.append(doc.id)
         except ValueError as exc:
             raise AppError(str(exc), status_code=400, code="upload_rejected") from exc
-    for doc_id in auto_ids:
-        background_tasks.add_task(_auto_pipeline, doc_id, settings)
+    if auto_ids:
+        # One background job → sequential extracts (never fan out 4×11 LLM calls).
+        background_tasks.add_task(_auto_pipeline_batch, auto_ids, settings)
     return {"documents": created, "auto_pipeline": auto_ids}
 
 
