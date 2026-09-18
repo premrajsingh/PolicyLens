@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 
 from fastapi import APIRouter, BackgroundTasks, Depends, File, UploadFile
@@ -58,15 +59,12 @@ def _auto_pipeline_batch(document_ids: list[str], settings: Settings) -> None:
 
 
 async def _auto_pipeline_batch_async(document_ids: list[str], settings: Settings) -> None:
-    for i, document_id in enumerate(document_ids):
-        if i:
-            # Pause between policies to stay under Groq RPM/TPD on free tier.
-            await asyncio.sleep(8)
+    for document_id in document_ids:
         await _auto_pipeline_async(document_id, settings)
 
 
 async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
-    """Process (Pinecone) then extract (Neo4j) in a fresh DB session."""
+    """Index the PDF, then prefer bundled sample QMS JSON (instant demo) over slow Groq."""
     try:
         with Session(get_engine(settings)) as session:
             pipeline = PipelineService(settings, session)
@@ -79,8 +77,25 @@ async def _auto_pipeline_async(document_id: str, settings: Settings) -> None:
             }:
                 await pipeline.process_document(document_id, reprocess=True)
             doc = session.get(Document, document_id)
-            if doc and doc.extraction_status != "extracted":
-                await pipeline.extract_policy(document_id)
+            if not doc or doc.extraction_status == "extracted":
+                logger.info("auto_pipeline_complete document_id=%s", document_id)
+                return
+
+            # Demo-fast path: published sample outputs ship in the image — no LLM wait.
+            from app.core.seed import _find_sample_json, _persist_payload
+
+            sample = _find_sample_json(doc.original_filename or doc.filename)
+            if sample is not None:
+                payload = json.loads(sample.read_text(encoding="utf-8"))
+                _persist_payload(session, doc, payload)
+                logger.info(
+                    "auto_pipeline_hydrated document_id=%s sample=%s",
+                    document_id,
+                    sample.name,
+                )
+                return
+
+            await pipeline.extract_policy(document_id)
             logger.info("auto_pipeline_complete document_id=%s", document_id)
     except Exception:
         logger.exception("auto_pipeline_failed document_id=%s", document_id)
